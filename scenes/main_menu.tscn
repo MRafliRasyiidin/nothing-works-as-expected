@@ -1,0 +1,397 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciuk37pcevia4"]
+
+[ext_resource type="Script" uid="uid://ii1mljqm4fdg" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.137255, 0.27451, 0.243137, 0.94902)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 4
+
+[sub_resource type="Theme" id="Theme_bqqt6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.054902, 0.243137, 0.258824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.0805442, 0.312109, 0.331413, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 2
+
+[sub_resource type="Animation" id="Animation_8egab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -214)]
+}
+
+[sub_resource type="Animation" id="Animation_hstxw"]
+resource_name = "wobble"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0349066, -0.0349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4, -214), Vector2(-4, -234)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8egab"]
+_data = {
+&"RESET": SubResource("Animation_8egab"),
+&"wobble": SubResource("Animation_hstxw")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -538.0
+offset_right = 1340.0
+offset_bottom = 542.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(966.667, 525.556)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -503.0
+offset_right = 250.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+
+[node name="Options" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+
+[node name="OptionsMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="OptionsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Fullscreen" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/Panel/VBoxContainer/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_bqqt6")
+
+[node name="Resolution" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/Resolution"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/Panel/VBoxContainer/Resolution"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_default_cursor_shape = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="MasterVolume" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/MasterVolume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Panel/VBoxContainer/MasterVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/MusicVolume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Panel/VBoxContainer/MusicVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Back" type="Button" parent="OptionsMenu/Panel"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -92.0
+offset_right = 100.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Back
+"
+
+[node name="PopUp" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.0
+offset_top = -210.0
+offset_right = 1161.0
+offset_bottom = 903.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -774.5
+offset_top = -556.5
+offset_right = 774.5
+offset_bottom = 556.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -691.0
+offset_top = -355.5
+offset_right = 691.0
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.223529, 0.117647, 0.329412, 1)
+theme_override_font_sizes/font_size = 130
+text = "Do you want to go through the tutorial?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Yes" type="TextureButton" parent="PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 119.5
+offset_top = 153.5
+offset_right = 343.5
+offset_bottom = 253.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="No" type="TextureButton" parent="PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.5
+offset_top = 153.5
+offset_right = -391.5
+offset_bottom = 253.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="CloseButton" type="TextureButton" parent="PopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 563.5
+offset_top = -484.5
+offset_right = 672.5
+offset_bottom = -439.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8egab")
+}
+
+[connection signal="pressed" from="PopUp/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="PopUp/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="PopUp/CloseButton" to="." method="_on_close_button_pressed"]
