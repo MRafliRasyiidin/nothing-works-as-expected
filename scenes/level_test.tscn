@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnnqgidpn3r07"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8m37a"]
+
+[sub_resource type="Environment" id="Environment_8m37a"]
+background_mode = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9998742, 0.015864387, 0, -0.015864387, 0.9998742, 0, 0.7420518, 1.8665802)
+
+[node name="Environment" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.9913374, 0.13133943, 0, -0.13133943, 0.9913374, 0, 0, 0, 1, 0, -0.07579255, 0)
+mesh = SubResource("PlaneMesh_8m37a")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(-0.99811465, 0.06137954, 0, -0.06137954, -0.99811465, 0, 0, 0, 1, 0, 1.6983905, 0)
+mesh = SubResource("PlaneMesh_8m37a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.020226955, -0.99979544, 0, 0.99979544, 0.020226955, 0, 0, 0, 1, 1.0894876, 0.7909435, 0)
+mesh = SubResource("PlaneMesh_8m37a")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.06730132, 0.9977326, 0, -0.9977326, 0.06730132, 0, 0, 0, 1, -1.0339348, 0.8464925, 0)
+mesh = SubResource("PlaneMesh_8m37a")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.002367568, 0.035098862, -0.99938107, -0.9977326, 0.06730132, 0, 0.06725966, 0.9971151, 0.035178628, -0.056737185, 0.8464925, -1.0890164)
+mesh = SubResource("PlaneMesh_8m37a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8m37a")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, 0.25, -0.43301272, 0, 0.86602545, 0.5, 0.5, -0.4330127, 0.75, -3, 3, 3)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9635791, -0.13371167, 0.23159541, 0.2219256, 0.8830306, -0.41352886, -0.1492122, 0.44986477, 0.8805438, 3.5153131, -2.9250126, 3)
