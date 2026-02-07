@@ -36,7 +36,7 @@ func _input(event: InputEvent) -> void:
 		if flag.is_completed:
 			flag.change_e_texture(true)
 			await get_tree().create_timer(0.2).timeout
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/stages/2/stage_2.tscn")
 
 func _on_flag_area_entered(can_move: bool, node_name: String):
 	if can_move:
