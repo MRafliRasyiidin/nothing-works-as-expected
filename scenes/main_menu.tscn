@@ -1,6 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciuk37pcevia4"]
+[gd_scene load_steps=20 format=3 uid="uid://ciuk37pcevia4"]
 
 [ext_resource type="Script" uid="uid://ii1mljqm4fdg" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b7hmbd44u1eu5" path="res://assets/main_menu/Background nya.PNG" id="2_flqon"]
+[ext_resource type="Texture2D" uid="uid://bhr6jxcccuod4" path="res://assets/main_menu/Start.PNG" id="3_flqon"]
+[ext_resource type="Texture2D" uid="uid://bgbhtywlcwlbp" path="res://assets/main_menu/Start klo dipencet.PNG" id="4_rcqid"]
+[ext_resource type="Texture2D" uid="uid://8fpt8o7ss0yx" path="res://assets/main_menu/Settings.PNG" id="5_flqon"]
+[ext_resource type="Texture2D" uid="uid://0ul3uie4dgme" path="res://assets/main_menu/Settings dipencet.PNG" id="6_rcqid"]
+[ext_resource type="Texture2D" uid="uid://cw3jul5mspsxx" path="res://assets/main_menu/Exit.PNG" id="7_flqon"]
+[ext_resource type="Texture2D" uid="uid://dpif16qcp8m84" path="res://assets/main_menu/Exit dipencet.PNG" id="8_rcqid"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
 bg_color = Color(0.137255, 0.27451, 0.243137, 0.94902)
@@ -31,61 +38,25 @@ corner_radius_bottom_left = 8
 shadow_color = Color(0, 0, 0, 0.15)
 shadow_size = 2
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbmy8"]
+load_path = "res://.godot/imported/Group 61.png-ad43a3b692f1b640c5135478a6837fe8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jk1qb"]
+load_path = "res://.godot/imported/Group 63.png-3c0187ee19af8c6d2b88d21c40247015.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dd4i"]
+load_path = "res://.godot/imported/Group 62.png-dc1d1a11a4f80177614f8782da053eb9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lgwnu"]
+load_path = "res://.godot/imported/Group 64.png-52828813d720b66544733ea602d698bb.ctex"
+
 [sub_resource type="Animation" id="Animation_8egab"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Logo:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Logo:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, -214)]
-}
 
 [sub_resource type="Animation" id="Animation_hstxw"]
 resource_name = "wobble"
 length = 2.0
 loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Logo:rotation")
-tracks/0/interp = 4
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0349066, -0.0349066]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Logo:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.933333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-4, -214), Vector2(-4, -234)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8egab"]
 _data = {
@@ -107,55 +78,47 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1388.0
+offset_bottom = 780.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Logo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -580.0
-offset_top = -538.0
-offset_right = 1340.0
-offset_bottom = 542.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.6, 0.6)
-pivot_offset = Vector2(966.667, 525.556)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_flqon")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -503.0
-offset_right = 250.0
-offset_bottom = -143.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 30
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -633.0
+offset_top = 21.0
+offset_right = 366.0
+offset_bottom = 1128.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 0
 
 [node name="Play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_flqon")
+texture_hover = ExtResource("4_rcqid")
 
 [node name="Options" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_flqon")
+texture_hover = ExtResource("6_rcqid")
 
 [node name="Exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_flqon")
+texture_hover = ExtResource("8_rcqid")
 
 [node name="OptionsMenu" type="Control" parent="."]
 visible = false
@@ -357,6 +320,8 @@ offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+texture_normal = SubResource("CompressedTexture2D_tbmy8")
+texture_hover = SubResource("CompressedTexture2D_jk1qb")
 
 [node name="No" type="TextureButton" parent="PopUp"]
 layout_mode = 1
@@ -372,6 +337,8 @@ offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+texture_normal = SubResource("CompressedTexture2D_5dd4i")
+texture_hover = SubResource("CompressedTexture2D_lgwnu")
 
 [node name="CloseButton" type="TextureButton" parent="PopUp"]
 layout_mode = 1

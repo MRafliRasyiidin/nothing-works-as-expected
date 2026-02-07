@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://blm2jelfmjobq"]
+
+[ext_resource type="Script" uid="uid://bcgbau130b156" path="res://scenes/flag/flag.gd" id="1_r0khp"]
+[ext_resource type="SpriteFrames" uid="uid://b8esfxmh3f16u" path="res://scenes/flag/flag.tres" id="2_ef2tt"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="4_midhq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
+size = Vector2(167, 151)
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("1_r0khp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = ExtResource("2_ef2tt")
+animation = &"run_down"
+frame_progress = 0.29061273
+
+[node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = -122.85715
+offset_right = -80.0
+offset_bottom = -79.85715
+grow_horizontal = 2
+texture = ExtResource("4_midhq")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_e4ssd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-63, -57, 103, 130)
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
