@@ -5,3 +5,5 @@ func _ready() -> void:
 
 var is_hand_attacking = false
 var is_player_move = false
+
+var retry_count = 0
