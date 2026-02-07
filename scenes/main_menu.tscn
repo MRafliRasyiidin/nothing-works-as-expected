@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ii1mljqm4fdg" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b7hmbd44u1eu5" path="res://assets/main_menu/Background nya.PNG" id="2_flqon"]
-[ext_resource type="Texture2D" uid="uid://bhr6jxcccuod4" path="res://assets/main_menu/Start.PNG" id="3_flqon"]
-[ext_resource type="Texture2D" uid="uid://bgbhtywlcwlbp" path="res://assets/main_menu/Start klo dipencet.PNG" id="4_rcqid"]
+[ext_resource type="Texture2D" uid="uid://bvlbqkjp0f3pj" path="res://assets/main_menu/Start.png" id="3_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://boi00dxyltjhq" path="res://assets/main_menu/start dipebncet.png" id="4_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://8fpt8o7ss0yx" path="res://assets/main_menu/Settings.PNG" id="5_flqon"]
 [ext_resource type="Texture2D" uid="uid://0ul3uie4dgme" path="res://assets/main_menu/Settings dipencet.PNG" id="6_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cw3jul5mspsxx" path="res://assets/main_menu/Exit.PNG" id="7_flqon"]
@@ -103,8 +103,8 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_flqon")
-texture_hover = ExtResource("4_rcqid")
+texture_normal = ExtResource("3_tbmy8")
+texture_hover = ExtResource("4_tbmy8")
 
 [node name="Options" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2

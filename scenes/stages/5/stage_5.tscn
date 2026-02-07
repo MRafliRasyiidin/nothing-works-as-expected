@@ -1,4 +1,54 @@
-[gd_scene format=3 uid="uid://dpiymhri3rma0"]
+[gd_scene load_steps=14 format=3 uid="uid://dpiymhri3rma0"]
+
+[ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="1_2tgod"]
+[ext_resource type="Script" uid="uid://dihy358tl5ud2" path="res://scenes/stages/5/stage_5.gd" id="1_datci"]
+[ext_resource type="Texture2D" uid="uid://3usl8kulsy32" path="res://assets/stage/cat/IMG_6016.PNG" id="1_gwe5a"]
+[ext_resource type="Texture2D" uid="uid://dns2quir7xd0l" path="res://assets/stage/cat/IMG_6017.PNG" id="2_1wqbp"]
+[ext_resource type="Texture2D" uid="uid://dkjris7ku3ws0" path="res://assets/stage/cat/IMG_6022.PNG" id="3_0a16o"]
+[ext_resource type="Texture2D" uid="uid://b6nrk4mfydg5l" path="res://assets/stage/cat/IMG_6018.PNG" id="3_2tgod"]
+[ext_resource type="Texture2D" uid="uid://b5t858va5061g" path="res://assets/stage/cat/IMG_6019.PNG" id="4_datci"]
+[ext_resource type="Texture2D" uid="uid://c2c6mq4tkes5b" path="res://assets/stage/cat/IMG_6023.PNG" id="4_xe64s"]
+[ext_resource type="Texture2D" uid="uid://bwea8nomtd6lj" path="res://assets/hand/regular state.png" id="6_datci"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0a16o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqdtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0a16o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xe64s")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gwe5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1wqbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2tgod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_datci")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_datci"]
+size = Vector2(250, 107.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_datci"]
+radius = 87.19757
+height = 248.79932
 
 [node name="Stage5" type="Control"]
 layout_mode = 3
@@ -7,11 +57,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_datci")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BaseBg" parent="." instance=ExtResource("1_2tgod")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+
+[node name="Cat" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cat"]
+material = SubResource("ShaderMaterial_0a16o")
+position = Vector2(640, 360)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_yqdtu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.4772795
+
+[node name="Area2D" type="Area2D" parent="Cat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/Area2D"]
+position = Vector2(648, 213.25)
+shape = SubResource("RectangleShape2D_datci")
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(1101, 624.9999)
+rotation = -0.41223142
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_datci")
+
+[node name="HandArea" type="Area2D" parent="Hand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/HandArea"]
+position = Vector2(-36.450638, -186.20235)
+rotation = -0.5284412
+shape = SubResource("CapsuleShape2D_datci")
+
+[connection signal="area_entered" from="Cat/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Cat/Area2D" to="." method="_on_area_2d_area_exited"]

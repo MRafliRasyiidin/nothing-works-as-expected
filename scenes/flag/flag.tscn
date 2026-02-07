@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://blm2jelfmjobq"]
 
 [ext_resource type="Script" uid="uid://bcgbau130b156" path="res://scenes/flag/flag.gd" id="1_r0khp"]
-[ext_resource type="SpriteFrames" uid="uid://b8esfxmh3f16u" path="res://scenes/flag/flag.tres" id="2_ef2tt"]
-[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="4_midhq"]
+[ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="2_ef2tt"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="4_midhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
 size = Vector2(167, 151)
@@ -14,7 +14,7 @@ script = ExtResource("1_r0khp")
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("2_ef2tt")
 animation = &"run_down"
-frame_progress = 0.29061273
+frame_progress = 0.4459983
 
 [node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
 visible = false

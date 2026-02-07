@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cjhra1eqas5nr"]
+[gd_scene load_steps=28 format=3 uid="uid://cgfa84msbjjoi"]
 
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="1_bs2yw"]
 [ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="1_q0yau"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="3_rmh7k"]
 [ext_resource type="Texture2D" uid="uid://0ihy3ltlahk0" path="res://assets/background/wall/wall_deteriorate.png" id="5_rmh7k"]
 [ext_resource type="Texture2D" uid="uid://u6tupqfrf7v6" path="res://assets/stage/flag/bendera berkibar.png" id="7_bajpa"]
-[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="8_fe8rg"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="8_fe8rg"]
 [ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="9_e3ueb"]
 [ext_resource type="Texture2D" uid="uid://cb4u678jfulsc" path="res://assets/stage/health_bar/IMG_0712.PNG" id="10_kf1su"]
 [ext_resource type="Texture2D" uid="uid://c6je86wfu70al" path="res://assets/stage/health_bar/IMG_0711.PNG" id="11_6e0d4"]
@@ -241,8 +241,8 @@ texture = ExtResource("12_0ctgs")
 position = Vector2(213.5, 674)
 shape = SubResource("RectangleShape2D_j5kpl")
 
-[connection signal="pressed" from="CanvasLayer/RetryContainer/Retry" to="CanvasLayer/RetryContainer/Retry" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/RetryContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/RetryContainer/Retry" to="CanvasLayer/RetryContainer/Retry" method="_on_pressed"]
 [connection signal="body_entered" from="Flag/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Flag/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_body_entered"]

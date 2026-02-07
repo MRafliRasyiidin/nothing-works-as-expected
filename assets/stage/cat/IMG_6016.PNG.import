@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuwcsx6ikwfor"
-path="res://.godot/imported/E Ditekan.png-9b4b2eb11334a147e65579123b7b47d2.ctex"
+uid="uid://3usl8kulsy32"
+path="res://.godot/imported/IMG_6016.PNG-7a0c6f002fd88ec88e169012c00e4335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage/button/E Ditekan.png"
-dest_files=["res://.godot/imported/E Ditekan.png-9b4b2eb11334a147e65579123b7b47d2.ctex"]
+source_file="res://assets/stage/cat/IMG_6016.PNG"
+dest_files=["res://.godot/imported/IMG_6016.PNG-7a0c6f002fd88ec88e169012c00e4335.ctex"]
 
 [params]
 

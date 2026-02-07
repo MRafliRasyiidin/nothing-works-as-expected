@@ -17,7 +17,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('submit') and is_completed and button_texture.visible:
 		change_e_texture(true)
 		await get_tree().create_timer(0.3).timeout
-		get_tree().change_scene_to_file("res://scenes/stages/2/stage_2.tscn")
+		get_tree().change_scene_to_file("res://scenes/stages/4/stage_4.tscn")
 
 func _on_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and is_completed:

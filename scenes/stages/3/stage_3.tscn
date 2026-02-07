@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="3_n4le2"]
 [ext_resource type="Script" uid="uid://dwqrlcl3bmgo1" path="res://scenes/stages/3/flag_stage3.gd" id="6_h2s3n"]
 [ext_resource type="Texture2D" uid="uid://bae266myy7cve" path="res://assets/stage/item/IMG_6036.PNG" id="6_xw33e"]
-[ext_resource type="SpriteFrames" uid="uid://b8esfxmh3f16u" path="res://scenes/flag/flag.tres" id="7_0fahy"]
+[ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="7_0fahy"]
 [ext_resource type="Texture2D" uid="uid://sfa75d5wm033" path="res://assets/stage/item/IMG_6037.PNG" id="7_22lcq"]
-[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="7_llq4q"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="7_llq4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6t5r"]
 size = Vector2(1234, 148.83333)
@@ -114,7 +114,7 @@ scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_dj47f")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.22002994
+frame_progress = 0.8151839
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0.5, 3.5)

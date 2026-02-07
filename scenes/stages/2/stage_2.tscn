@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_0wbof"]
 [ext_resource type="Script" uid="uid://y78f5bj68c1q" path="res://scenes/stages/player_finish.gd" id="3_dg2hc"]
 [ext_resource type="SpriteFrames" uid="uid://dcadnas5ihgm2" path="res://scenes/player/player.tres" id="3_tiiek"]
-[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="4_dg2hc"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="4_dg2hc"]
 [ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="6_dg2hc"]
 [ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="8_6qvj4"]
 [ext_resource type="Texture2D" uid="uid://cb4u678jfulsc" path="res://assets/stage/health_bar/IMG_0712.PNG" id="8_t6owx"]

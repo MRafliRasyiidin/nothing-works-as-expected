@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('submit') and player_in_flag_area:
 		await get_tree().create_timer(0.3).timeout
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/stages/5/stage_5.tscn")
 
 func _on_retry_pressed() -> void:
 	GameState.retry_count += 1
