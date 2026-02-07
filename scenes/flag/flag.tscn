@@ -1,120 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://blm2jelfmjobq"]
+[gd_scene load_steps=5 format=3 uid="uid://blm2jelfmjobq"]
 
 [ext_resource type="Script" uid="uid://bcgbau130b156" path="res://scenes/flag/flag.gd" id="1_r0khp"]
-[ext_resource type="Texture2D" uid="uid://u6tupqfrf7v6" path="res://assets/stage/flag/bendera berkibar.png" id="2_ef2tt"]
-[ext_resource type="Texture2D" uid="uid://6eby8xlfqrjs" path="res://assets/stage/flag/bendera jalan.png" id="3_ef2tt"]
+[ext_resource type="SpriteFrames" uid="uid://b8esfxmh3f16u" path="res://scenes/flag/flag.tres" id="2_ef2tt"]
 [ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="4_midhq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_midhq"]
-atlas = ExtResource("2_ef2tt")
-region = Rect2(0, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xtrmo"]
-atlas = ExtResource("2_ef2tt")
-region = Rect2(200, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8txm3"]
-atlas = ExtResource("2_ef2tt")
-region = Rect2(400, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_28f0n"]
-atlas = ExtResource("2_ef2tt")
-region = Rect2(600, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bikvh"]
-atlas = ExtResource("2_ef2tt")
-region = Rect2(800, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sshal"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(0, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dinqf"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(200, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8xl61"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(400, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qfgl0"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(600, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yucod"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(800, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1fsc"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(1000, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkjd8"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(1200, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uuw5n"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(1400, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o250w"]
-atlas = ExtResource("3_ef2tt")
-region = Rect2(1600, 0, 200, 200)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sshal"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_midhq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xtrmo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8txm3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_28f0n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bikvh")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sshal")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dinqf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8xl61")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qfgl0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yucod")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i1fsc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mkjd8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uuw5n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o250w")
-}],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
 size = Vector2(167, 151)
@@ -124,9 +12,9 @@ script = ExtResource("1_r0khp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
-sprite_frames = SubResource("SpriteFrames_sshal")
-animation = &"run"
-frame_progress = 0.7342725
+sprite_frames = ExtResource("2_ef2tt")
+animation = &"run_down"
+frame_progress = 0.29061273
 
 [node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
 visible = false

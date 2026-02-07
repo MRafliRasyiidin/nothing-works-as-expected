@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsukcrxiwqkyr"]
+
+[ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="1_djy2v"]
+[ext_resource type="Script" uid="uid://bry7jvfa3hmhx" path="res://scenes/stages/3/stage_3.gd" id="1_k7kex"]
+
+[node name="Stage3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k7kex")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_djy2v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
