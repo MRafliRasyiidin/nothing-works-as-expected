@@ -5,8 +5,8 @@ signal flag_area_exited
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var button_texture = $AnimatedSprite2D/TextureRect
-@onready var e_texture = preload("res://assets/stage/button/E.png")
-@onready var e_texture_hover = preload("res://assets/stage/button/E Ditekan.png")
+@onready var e_texture = preload("res://assets/stage/ui/E.png")
+@onready var e_texture_hover = preload("res://assets/stage/ui/E Ditekan.png")
 
 var is_completed: bool = false
 

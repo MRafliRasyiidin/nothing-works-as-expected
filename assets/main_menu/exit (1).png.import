@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ul3uie4dgme"
-path="res://.godot/imported/Settings dipencet.PNG-a1fb461f5e11bd64bef610b3dea28c25.ctex"
+uid="uid://dgc232hg4bhg1"
+path="res://.godot/imported/exit (1).png-7a15aa37924d44fc0ef9663d4849297c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_menu/Settings dipencet.PNG"
-dest_files=["res://.godot/imported/Settings dipencet.PNG-a1fb461f5e11bd64bef610b3dea28c25.ctex"]
+source_file="res://assets/main_menu/exit (1).png"
+dest_files=["res://.godot/imported/exit (1).png-7a15aa37924d44fc0ef9663d4849297c.ctex"]
 
 [params]
 
