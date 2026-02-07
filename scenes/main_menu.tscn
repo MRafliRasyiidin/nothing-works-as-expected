@@ -1,6 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciuk37pcevia4"]
+[gd_scene load_steps=20 format=3 uid="uid://ciuk37pcevia4"]
 
 [ext_resource type="Script" uid="uid://ii1mljqm4fdg" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://cgsr0b72rja8o" path="res://assets/main_menu/background.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://0pit7nbssqee" path="res://assets/main_menu/play.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://b82tpcq30qa6a" path="res://assets/main_menu/play_hover.png" id="5_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cbbod8j0holvg" path="res://assets/main_menu/options.png" id="6_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://bn6jt181ebp53" path="res://assets/main_menu/options_hover.png" id="7_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://dmx3nq2hodmu6" path="res://assets/main_menu/exit.png" id="8_flqon"]
+[ext_resource type="Texture2D" uid="uid://bdjh5rq3uvucs" path="res://assets/main_menu/exit_hover.png" id="9_rcqid"]
+[ext_resource type="Texture2D" uid="uid://c0xsxef2v7tbs" path="res://assets/main_menu/Group 61.png" id="14_hstxw"]
+[ext_resource type="Texture2D" uid="uid://ciinxmn05mmhv" path="res://assets/main_menu/Group 63.png" id="15_8egab"]
+[ext_resource type="Texture2D" uid="uid://dg1t5wpyqu0hd" path="res://assets/main_menu/Group 62.png" id="16_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://x0fg2kdlhl4j" path="res://assets/main_menu/Group 64.png" id="17_svtp6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
 bg_color = Color(0.137255, 0.27451, 0.243137, 0.94902)
@@ -109,6 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_8ln24")
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 1
@@ -117,10 +129,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -580.0
-offset_top = -538.0
-offset_right = 1340.0
-offset_bottom = 542.0
+offset_left = -964.0
+offset_top = -754.0
+offset_right = 956.0
+offset_bottom = 326.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
@@ -146,16 +158,22 @@ theme_override_constants/separation = 30
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_rtw2f")
+texture_hover = ExtResource("5_jk1qb")
 
 [node name="Options" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_5dd4i")
+texture_hover = ExtResource("7_lgwnu")
 
 [node name="Exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_flqon")
+texture_hover = ExtResource("9_rcqid")
 
 [node name="OptionsMenu" type="Control" parent="."]
 visible = false
@@ -357,6 +375,8 @@ offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+texture_normal = ExtResource("14_hstxw")
+texture_hover = ExtResource("15_8egab")
 
 [node name="No" type="TextureButton" parent="PopUp"]
 layout_mode = 1
@@ -372,6 +392,8 @@ offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+texture_normal = ExtResource("16_gw5y6")
+texture_hover = ExtResource("17_svtp6")
 
 [node name="CloseButton" type="TextureButton" parent="PopUp"]
 layout_mode = 1

@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbtg036s66qab"]
+
+[ext_resource type="Texture2D" uid="uid://dnd8ataaml857" path="res://assets/temp/Progress Bar.png" id="1_dvwaa"]
+[ext_resource type="Script" uid="uid://bwoenwjxdeb2y" path="res://scenes/stages/stages_1.gd" id="1_htm8m"]
+[ext_resource type="Texture2D" uid="uid://dlutsgfhv1ep8" path="res://assets/temp/Progress Bar Isi.png" id="2_eyx48"]
+[ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="3_eyx48"]
+[ext_resource type="PackedScene" uid="uid://blm2jelfmjobq" path="res://scenes/flag/flag.tscn" id="4_y6gyx"]
+[ext_resource type="Texture2D" uid="uid://ctbypgy1nn0ty" path="res://assets/temp/hand-removebg-preview.png" id="6_r5nic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtysh"]
+size = Vector2(140.5, 27)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5nic"]
+radius = 41.310852
+height = 316.63086
+
+[node name="Stages1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_htm8m")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = -46.0
+offset_right = 206.0
+offset_bottom = -21.0
+grow_vertical = 0
+value = 100.0
+texture_under = ExtResource("1_dvwaa")
+texture_progress = ExtResource("2_eyx48")
+texture_progress_offset = Vector2(4, 5)
+
+[node name="Flag" parent="." instance=ExtResource("4_y6gyx")]
+position = Vector2(565, 275)
+
+[node name="Player" parent="." instance=ExtResource("3_eyx48")]
+position = Vector2(33, 688)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(138, 686)
+mass = 0.3
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_gtysh")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_dvwaa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="RigidBody2D/Sprite2D"]
+position = Vector2(-0.125, -0.125)
+texture = ExtResource("2_eyx48")
+
+[node name="Hand" type="RigidBody2D" parent="."]
+position = Vector2(990, 567)
+mass = 0.3
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2(6.0000076, 2.0000038)
+rotation = -0.5235988
+shape = SubResource("CapsuleShape2D_r5nic")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+position = Vector2(-37.250023, -33.25)
+scale = Vector2(1.4071041, 1.2418182)
+texture = ExtResource("6_r5nic")
