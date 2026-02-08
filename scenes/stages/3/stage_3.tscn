@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsukcrxiwqkyr"]
+[gd_scene load_steps=36 format=3 uid="uid://dsukcrxiwqkyr"]
 
 [ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="1_djy2v"]
 [ext_resource type="Script" uid="uid://bry7jvfa3hmhx" path="res://scenes/stages/3/stage_3.gd" id="1_k7kex"]
@@ -6,9 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="3_n4le2"]
 [ext_resource type="Script" uid="uid://dwqrlcl3bmgo1" path="res://scenes/stages/3/flag_stage3.gd" id="6_h2s3n"]
 [ext_resource type="Texture2D" uid="uid://bae266myy7cve" path="res://assets/stage/item/IMG_6036.PNG" id="6_xw33e"]
-[ext_resource type="SpriteFrames" uid="uid://b8esfxmh3f16u" path="res://scenes/flag/flag.tres" id="7_0fahy"]
+[ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="7_0fahy"]
 [ext_resource type="Texture2D" uid="uid://sfa75d5wm033" path="res://assets/stage/item/IMG_6037.PNG" id="7_22lcq"]
-[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/button/E.png" id="7_llq4q"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="7_llq4q"]
+[ext_resource type="Script" uid="uid://d2c6xiys1vt8l" path="res://scenes/stages/2/stage_ui.gd" id="10_wq0dk"]
+[ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="10_xw33e"]
+[ext_resource type="Texture2D" uid="uid://cgciicfhw5185" path="res://assets/stage/ui/retry.png" id="11_3qp5c"]
+[ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="11_22lcq"]
+[ext_resource type="Texture2D" uid="uid://ooh1w1823fc8" path="res://assets/stage/ui/retry hover.PNG" id="12_gph0c"]
+[ext_resource type="Texture2D" uid="uid://dng21hjto6tw3" path="res://assets/stage/ui/pause (1).PNG" id="13_mpxh8"]
+[ext_resource type="Texture2D" uid="uid://bahpi1u4in6pg" path="res://assets/stage/ui/pause hover (1).PNG" id="14_di64b"]
+[ext_resource type="Texture2D" uid="uid://fxnxv4ru757c" path="res://assets/stage/ui/play.PNG" id="15_f56pu"]
+[ext_resource type="Texture2D" uid="uid://drcrewch05s5t" path="res://assets/stage/ui/play hover.PNG" id="16_bm81y"]
+[ext_resource type="Texture2D" uid="uid://bobcobpxtlomp" path="res://assets/stage/ui/settings (2).PNG" id="17_6mmgt"]
+[ext_resource type="Texture2D" uid="uid://2muu8bvjp2hn" path="res://assets/stage/ui/settings hover.PNG" id="18_xh1qv"]
+[ext_resource type="Texture2D" uid="uid://561fkd2myoio" path="res://assets/stage/ui/exit (2).PNG" id="19_ifr5d"]
+[ext_resource type="Texture2D" uid="uid://dnko660ycdijx" path="res://assets/stage/ui/exit hover.PNG" id="20_vc7nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6t5r"]
 size = Vector2(1234, 148.83333)
@@ -21,6 +34,9 @@ size = Vector2(583.3334, 20.000008)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llq4q"]
 size = Vector2(542, 17.333298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
+size = Vector2(167, 151)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b4gb"]
 atlas = ExtResource("6_xw33e")
@@ -47,8 +63,34 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2s3n"]
 size = Vector2(39, 27)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
-size = Vector2(167, 151)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04jyq"]
+bg_color = Color(0.137255, 0.27451, 0.243137, 0.94902)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 4
+
+[sub_resource type="Theme" id="Theme_onpeg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0c1o"]
+bg_color = Color(0.054902, 0.243137, 0.258824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f67d"]
+bg_color = Color(0.0805442, 0.312109, 0.331413, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 2
 
 [node name="Stage3" type="Control"]
 layout_mode = 3
@@ -101,29 +143,6 @@ shape = SubResource("RectangleShape2D_ufffd")
 position = Vector2(961.66675, 683.5)
 shape = SubResource("RectangleShape2D_llq4q")
 
-[node name="Player" parent="." instance=ExtResource("3_n4le2")]
-position = Vector2(246, 250)
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(305, 307)
-gravity_scale = 0.0
-linear_damp = 7.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
-scale = Vector2(0.12, 0.12)
-sprite_frames = SubResource("SpriteFrames_dj47f")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.22002994
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0.5, 3.5)
-shape = SubResource("RectangleShape2D_h2s3n")
-
-[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
-position = Vector2(-0.5, 0.5)
-zoom = Vector2(2.5, 2.5)
-
 [node name="Flag" type="Node2D" parent="."]
 position = Vector2(1029, 344)
 
@@ -159,6 +178,261 @@ rect = Rect2(-63, -57, 103, 130)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Flag"]
 
+[node name="Player" parent="." instance=ExtResource("3_n4le2")]
+position = Vector2(246, 250)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(305, 307)
+gravity_scale = 0.0
+linear_damp = 7.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_dj47f")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.8151839
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_h2s3n")
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+position = Vector2(-0.5, 0.5)
+zoom = Vector2(2.5, 2.5)
+
+[node name="StageUI" type="Control" parent="RigidBody2D"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 258.0
+offset_top = -142.00002
+offset_right = 258.0
+offset_bottom = -142.00002
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+script = ExtResource("10_wq0dk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RigidBody2D/StageUI"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -149.0
+offset_top = 7.0
+offset_right = 311.0
+offset_bottom = 207.0
+grow_horizontal = 0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 60
+
+[node name="RetryButton" type="TextureButton" parent="RigidBody2D/StageUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_3qp5c")
+texture_hover = ExtResource("12_gph0c")
+
+[node name="PauseButton" type="TextureButton" parent="RigidBody2D/StageUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_mpxh8")
+texture_hover = ExtResource("14_di64b")
+
+[node name="Control" type="Control" parent="RigidBody2D/StageUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -624.99994
+offset_top = 355.0
+offset_right = -624.99994
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D/StageUI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36862746, 0.36862746, 0.36862746, 0.7921569)
+
+[node name="PausePopup" type="HBoxContainer" parent="RigidBody2D/StageUI/Control"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -58.0
+offset_right = 461.88
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 100
+
+[node name="ContinueButton" type="TextureButton" parent="RigidBody2D/StageUI/Control/PausePopup"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("15_f56pu")
+texture_hover = ExtResource("16_bm81y")
+
+[node name="Settings" type="TextureButton" parent="RigidBody2D/StageUI/Control/PausePopup"]
+layout_mode = 2
+texture_normal = ExtResource("17_6mmgt")
+texture_hover = ExtResource("18_xh1qv")
+
+[node name="Exit" type="TextureButton" parent="RigidBody2D/StageUI/Control/PausePopup"]
+layout_mode = 2
+texture_normal = ExtResource("19_ifr5d")
+texture_hover = ExtResource("20_vc7nl")
+
+[node name="OptionsMenu" type="Control" parent="RigidBody2D/StageUI/Control"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="RigidBody2D/StageUI/Control/OptionsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_04jyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Fullscreen" type="HBoxContainer" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_onpeg")
+
+[node name="Resolution" type="HBoxContainer" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/Resolution"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/Resolution"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_default_cursor_shape = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="MasterVolume" type="HBoxContainer" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/MasterVolume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/MasterVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/MusicVolume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/MusicVolume"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Back" type="Button" parent="RigidBody2D/StageUI/Control/OptionsMenu/Panel"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -92.0
+offset_right = 100.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i0c1o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5f67d")
+text = "Back
+"
+
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(799, 572)
 
@@ -167,10 +441,45 @@ texture = ExtResource("7_llq4q")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Node2D"]
 
+[node name="StageIntro" parent="." instance=ExtResource("10_xw33e")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+scale = Vector2(0.41, 0.41)
+
+[node name="Transition" type="VideoStreamPlayer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.0
+offset_top = -147.0
+offset_right = 2410.0
+offset_bottom = 1355.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.196, 0.196)
+stream = ExtResource("11_22lcq")
+autoplay = true
+
 [connection signal="body_entered" from="Flag/Flag/Area" to="Flag/Flag" method="_on_area_body_entered"]
 [connection signal="body_exited" from="Flag/Flag/Area" to="Flag/Flag" method="_on_area_body_exited"]
 [connection signal="screen_exited" from="Flag/Flag/VisibleOnScreenNotifier2D" to="Flag/Flag" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_entered" from="Flag/VisibleOnScreenNotifier2D" to="." method="_on_visible_flag_screen_entered"]
 [connection signal="screen_exited" from="Flag/VisibleOnScreenNotifier2D" to="." method="_on_visible_flag_screen_exited"]
+[connection signal="pressed" from="RigidBody2D/StageUI/HBoxContainer/RetryButton" to="RigidBody2D/StageUI" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/HBoxContainer/PauseButton" to="RigidBody2D/StageUI" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/Control/PausePopup/ContinueButton" to="RigidBody2D/StageUI" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/Control/PausePopup/Settings" to="RigidBody2D/StageUI" method="_on_settings_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/Control/PausePopup/Exit" to="RigidBody2D/StageUI" method="_on_exit_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/Fullscreen/CheckBox" to="RigidBody2D/StageUI" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/Control/OptionsMenu/Panel/Back" to="RigidBody2D/StageUI" method="_on_back_pressed"]
 [connection signal="screen_entered" from="Node2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_item_screen_entered"]
 [connection signal="screen_exited" from="Node2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_item_screen_exited"]

@@ -6,8 +6,8 @@ signal flag_exit_screen
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var button_texture = $AnimatedSprite2D/TextureRect
-@onready var e_texture = preload("res://assets/stage/button/E.png")
-@onready var e_texture_hover = preload("res://assets/stage/button/E Ditekan.png")
+@onready var e_texture = preload("res://assets/stage/ui/E.png")
+@onready var e_texture_hover = preload("res://assets/stage/ui/E Ditekan.png")
 
 var is_completed: bool = false
 
@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('submit') and is_completed and button_texture.visible:
 		change_e_texture(true)
 		await get_tree().create_timer(0.3).timeout
+		GameState.is_start_stage = true
 		get_tree().change_scene_to_file("res://scenes/stages/3/stage_3.tscn")
 
 func _on_area_body_entered(body: Node2D) -> void:

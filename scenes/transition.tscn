@@ -1,4 +1,43 @@
-[gd_scene format=3 uid="uid://jr8l4w60yoph"]
+[gd_scene load_steps=6 format=3 uid="uid://dgl7pkhvwwu6b"]
+
+[ext_resource type="Script" path="res://scenes/transition.gd" id="1_rerct"]
+[ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="2_f0i4t"]
+
+[sub_resource type="Animation" id="Animation_f0i4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rerct"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_px735"]
+_data = {
+&"RESET": SubResource("Animation_f0i4t"),
+&"fade": SubResource("Animation_rerct")
+}
 
 [node name="Transition" type="Control"]
 layout_mode = 3
@@ -7,29 +46,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rerct")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -76.0
-offset_right = 94.0
-offset_bottom = 76.0
+offset_left = -182.0
+offset_top = -263.0
+offset_right = 182.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Stage" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f0i4t")
 theme_override_font_sizes/font_size = 36
 text = "Stage 1"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Hint" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 52
 text = "Reach the Flag"
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_px735")
+}
+autoplay = "fade"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

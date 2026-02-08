@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Nothing Works As Expected"
+run/main_scene="uid://ciuk37pcevia4"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,8 +24,7 @@ GlobalSignal="*res://scripts/GlobalSignal.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [input]
 

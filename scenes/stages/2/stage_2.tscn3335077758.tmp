@@ -1,0 +1,210 @@
+[gd_scene load_steps=25 format=3 uid="uid://c2yk8wk7f01pi"]
+
+[ext_resource type="PackedScene" uid="uid://bidredhcqmjmp" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
+[ext_resource type="Script" uid="uid://brs55ijkv4hup" path="res://scenes/stages/2/stage_2.gd" id="1_tiiek"]
+[ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_0wbof"]
+[ext_resource type="Script" uid="uid://y78f5bj68c1q" path="res://scenes/stages/player_finish.gd" id="3_dg2hc"]
+[ext_resource type="SpriteFrames" uid="uid://dcadnas5ihgm2" path="res://scenes/player/player.tres" id="3_tiiek"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="4_dg2hc"]
+[ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="6_dg2hc"]
+[ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="8_6qvj4"]
+[ext_resource type="Texture2D" uid="uid://cb4u678jfulsc" path="res://assets/stage/health_bar/IMG_0712.PNG" id="8_t6owx"]
+[ext_resource type="Texture2D" uid="uid://c6je86wfu70al" path="res://assets/stage/health_bar/IMG_0711.PNG" id="9_6qvj4"]
+[ext_resource type="Texture2D" uid="uid://0pbi16w8ewv" path="res://assets/stage/health_bar/clock.png" id="11_ur4b4"]
+[ext_resource type="Texture2D" uid="uid://bmgcxsvynhj7k" path="res://assets/stage/ui/pause.png" id="12_mtr0k"]
+[ext_resource type="Texture2D" uid="uid://brckvuxvd32vh" path="res://assets/stage/ui/pause_hover.png" id="13_38mr1"]
+[ext_resource type="Texture2D" uid="uid://cgciicfhw5185" path="res://assets/stage/ui/retry.png" id="14_bysfy"]
+[ext_resource type="Texture2D" uid="uid://2pupo1e5i2hu" path="res://assets/stage/ui/retry_hover.png" id="15_dcvu1"]
+[ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="16_dcvu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg2hc"]
+size = Vector2(1234, 148.83333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxm4"]
+size = Vector2(30.055786, 712.8334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhmg7"]
+size = Vector2(583.3334, 20.000008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkiwu"]
+size = Vector2(542, 17.333298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llf8k"]
+size = Vector2(38, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur4b4"]
+size = Vector2(92.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6owx"]
+size = Vector2(292, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy3vy"]
+size = Vector2(55, 62)
+
+[node name="Stage2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tiiek")
+
+[node name="BaseBg" parent="." instance=ExtResource("2_0wbof")]
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.0
+offset_top = -354.5
+offset_right = 620.0
+offset_bottom = 354.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(670, 345.5)
+texture = ExtResource("6_dg2hc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(617, 64.41669)
+shape = SubResource("RectangleShape2D_dg2hc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(8, 346.4167)
+shape = SubResource("RectangleShape2D_kaxm4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(1227.6947, 348.4985)
+shape = SubResource("RectangleShape2D_kaxm4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(283.6667, 684.8334)
+shape = SubResource("RectangleShape2D_vhmg7")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(961.66675, 683.5)
+shape = SubResource("RectangleShape2D_rkiwu")
+
+[node name="PlayerFinish" type="Node2D" parent="."]
+position = Vector2(355, 320)
+script = ExtResource("3_dg2hc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerFinish"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = ExtResource("3_tiiek")
+animation = &"start"
+
+[node name="TextureRect" type="TextureRect" parent="PlayerFinish/AnimatedSprite2D"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = -107.14286
+offset_right = -32.5
+offset_bottom = -64.14286
+grow_horizontal = 2
+texture = ExtResource("4_dg2hc")
+
+[node name="Area" type="Area2D" parent="PlayerFinish"]
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerFinish/Area"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_llf8k")
+
+[node name="FlagPlayer" parent="." instance=ExtResource("1_sv1x6")]
+position = Vector2(810, 368)
+scale = Vector2(0.7, 0.7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(52, 18)
+gravity_scale = 0.0
+custom_integrator = true
+max_contacts_reported = 100
+angular_damp = -1.0
+script = ExtResource("8_6qvj4")
+
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+position = Vector2(436.75, 654.5)
+shape = SubResource("RectangleShape2D_ur4b4")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="RigidBody2D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = 636.0
+offset_right = 629.0
+offset_bottom = 696.0
+grow_vertical = 0
+scale = Vector2(0.667, 0.667)
+step = 0.0
+value = 80.0
+texture_under = ExtResource("8_t6owx")
+texture_progress = ExtResource("9_6qvj4")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(335, 656)
+shape = SubResource("RectangleShape2D_t6owx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(217, 668)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("11_ur4b4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(213.5, 674)
+shape = SubResource("RectangleShape2D_jy3vy")
+
+[node name="StageUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StageUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_top = 6.0
+offset_right = 95.0
+offset_bottom = 106.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="RetryButton" type="TextureButton" parent="StageUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_bysfy")
+texture_hover = ExtResource("15_dcvu1")
+
+[node name="PauseButton" type="TextureButton" parent="StageUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_mtr0k")
+texture_hover = ExtResource("13_38mr1")
+
+[node name="StageIntro" parent="." instance=ExtResource("16_dcvu1")]
+layout_mode = 1
+
+[connection signal="body_entered" from="PlayerFinish/Area" to="PlayerFinish" method="_on_area_body_entered"]
+[connection signal="body_exited" from="PlayerFinish/Area" to="PlayerFinish" method="_on_area_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_body_exited"]
+[connection signal="value_changed" from="RigidBody2D/TextureProgressBar" to="RigidBody2D" method="_on_texture_progress_bar_value_changed"]

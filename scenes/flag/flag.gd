@@ -6,8 +6,8 @@ signal flag_exit_screen
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var button_texture = $AnimatedSprite2D/TextureRect
-@onready var e_texture = preload("res://assets/stage/button/E.png")
-@onready var e_texture_hover = preload("res://assets/stage/button/E Ditekan.png")
+@onready var e_texture = preload("res://assets/stage/ui/E.png")
+@onready var e_texture_hover = preload("res://assets/stage/ui/E Ditekan.png")
 
 var can_move: bool = false
 var is_completed: bool = false
@@ -19,8 +19,8 @@ func _on_area_body_entered(body: Node2D) -> void:
 	flag_area_entered.emit(can_move, body.name)
 	if body.name == "Player":
 		can_move = false
-		is_completed = true
-	if body.name == "Player" and not can_move and animated_sprite.animation != 'run':
+	if (body.name == "Player" and not can_move and is_completed) or (body.name == "Hand"):
+		print('hohhoohohoho')
 		button_texture.show()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

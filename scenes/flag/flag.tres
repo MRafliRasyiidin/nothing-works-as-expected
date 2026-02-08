@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=45 format=3 uid="uid://hk3iv4m13b06"]
+[gd_resource type="SpriteFrames" load_steps=51 format=3 uid="uid://hk3iv4m13b06"]
 
 [ext_resource type="Texture2D" uid="uid://u6tupqfrf7v6" path="res://assets/stage/flag/bendera berkibar.png" id="1_ovnc0"]
+[ext_resource type="Texture2D" uid="uid://bvf64cycsyq4s" path="res://assets/stage/flag/bendera berkibar left.png" id="2_pmq7t"]
 [ext_resource type="Texture2D" uid="uid://6eby8xlfqrjs" path="res://assets/stage/flag/bendera jalan.png" id="2_xnyun"]
 [ext_resource type="Texture2D" uid="uid://d1tvpvta6y0m0" path="res://assets/stage/flag/bendera jalan kiri.png" id="3_xnyun"]
 
@@ -23,6 +24,26 @@ region = Rect2(600, 0, 200, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4mwh"]
 atlas = ExtResource("1_ovnc0")
 region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpfeb"]
+atlas = ExtResource("2_pmq7t")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xt5e"]
+atlas = ExtResource("2_pmq7t")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ohsa"]
+atlas = ExtResource("2_pmq7t")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msk1k"]
+atlas = ExtResource("2_pmq7t")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfohy"]
+atlas = ExtResource("2_pmq7t")
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sg1fc"]
 atlas = ExtResource("2_xnyun")
@@ -188,6 +209,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpfeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xt5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ohsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msk1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfohy")
+}],
+"loop": true,
+"name": &"idle_left",
 "speed": 5.0
 }, {
 "frames": [{
