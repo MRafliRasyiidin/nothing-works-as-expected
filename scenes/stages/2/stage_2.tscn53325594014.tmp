@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2yk8wk7f01pi"]
+[gd_scene load_steps=22 format=3 uid="uid://c2yk8wk7f01pi"]
 
-[ext_resource type="PackedScene" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
+[ext_resource type="PackedScene" uid="uid://bidredhcqmjmp" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
 [ext_resource type="Script" uid="uid://brs55ijkv4hup" path="res://scenes/stages/2/stage_2.gd" id="1_tiiek"]
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_0wbof"]
 [ext_resource type="Script" uid="uid://y78f5bj68c1q" path="res://scenes/stages/player_finish.gd" id="3_dg2hc"]
@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://0pbi16w8ewv" path="res://assets/stage/health_bar/clock.png" id="11_ur4b4"]
 [ext_resource type="Texture2D" uid="uid://bmgcxsvynhj7k" path="res://assets/stage/ui/pause.png" id="12_mtr0k"]
 [ext_resource type="Texture2D" uid="uid://brckvuxvd32vh" path="res://assets/stage/ui/pause_hover.png" id="13_38mr1"]
-[ext_resource type="Texture2D" uid="uid://cgciicfhw5185" path="res://assets/stage/ui/retry.png" id="14_bysfy"]
-[ext_resource type="Texture2D" uid="uid://2pupo1e5i2hu" path="res://assets/stage/ui/retry_hover.png" id="15_dcvu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg2hc"]
 size = Vector2(1234, 148.83333)
@@ -177,25 +175,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StageUI"]
+[node name="PauseButton" type="TextureButton" parent="StageUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -109.0
-offset_top = 6.0
-offset_right = 95.0
-offset_bottom = 106.0
+offset_left = -40.0
+offset_bottom = 40.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
-
-[node name="RetryButton" type="TextureButton" parent="StageUI/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("14_bysfy")
-texture_hover = ExtResource("15_dcvu1")
-
-[node name="PauseButton" type="TextureButton" parent="StageUI/HBoxContainer"]
-layout_mode = 2
 texture_normal = ExtResource("12_mtr0k")
 texture_hover = ExtResource("13_38mr1")
 
