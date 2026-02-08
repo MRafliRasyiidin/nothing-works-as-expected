@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var speed: float = 200.0
+var is_last_dir_right: bool = true
 
 func _ready() -> void:
 	animated_sprite.play("idle")
@@ -19,9 +20,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		direction.x -= 1
 		GameState.is_player_move = true
+		is_last_dir_right = false
 	if Input.is_action_pressed("right"):
 		direction.x += 1
 		GameState.is_player_move = true
+		is_last_dir_right = true
 	
 	direction = direction.normalized()
 	velocity = direction * speed
@@ -44,7 +47,7 @@ func _physics_process(delta):
 func update_animation(direction: Vector2):
 	if direction == Vector2.ZERO:
 		GameState.is_player_move = false
-		animated_sprite.play("idle")
+		animated_sprite.play("idle" if is_last_dir_right else "idle_left")
 		return
 		
 	if abs(direction.x) > abs(direction.y):

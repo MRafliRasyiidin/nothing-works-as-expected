@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dbtg036s66qab"]
 
 [ext_resource type="Texture2D" uid="uid://dnd8ataaml857" path="res://assets/temp/Progress Bar.png" id="1_dvwaa"]
-[ext_resource type="Script" uid="uid://bwoenwjxdeb2y" path="res://scenes/stages/1/stages_1.gd" id="1_htm8m"]
+[ext_resource type="Script" uid="uid://bwoenwjxdeb2y" path="res://scenes/stages/1/stage_1.gd" id="1_htm8m"]
 [ext_resource type="Texture2D" uid="uid://dlutsgfhv1ep8" path="res://assets/temp/Progress Bar Isi.png" id="2_eyx48"]
 [ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="3_eyx48"]
 [ext_resource type="PackedScene" uid="uid://blm2jelfmjobq" path="res://scenes/flag/flag.tscn" id="4_y6gyx"]

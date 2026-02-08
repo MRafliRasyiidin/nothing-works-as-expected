@@ -39,16 +39,12 @@ shadow_color = Color(0, 0, 0, 0.15)
 shadow_size = 2
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbmy8"]
-load_path = "res://.godot/imported/Group 61.png-ad43a3b692f1b640c5135478a6837fe8.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jk1qb"]
-load_path = "res://.godot/imported/Group 63.png-3c0187ee19af8c6d2b88d21c40247015.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dd4i"]
-load_path = "res://.godot/imported/Group 62.png-dc1d1a11a4f80177614f8782da053eb9.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lgwnu"]
-load_path = "res://.godot/imported/Group 64.png-52828813d720b66544733ea602d698bb.ctex"
 
 [sub_resource type="Animation" id="Animation_8egab"]
 length = 0.001

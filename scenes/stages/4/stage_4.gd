@@ -5,9 +5,31 @@ extends Control
 
 var player_in_flag_area: bool = false
 @onready var e: TextureRect = $Flag/TextureRect
+@onready var hint: Control = $CanvasLayer/StageIntro
+@onready var canvas = $CanvasLayer
+@onready var player = $Player
+@onready var transition = $Transition
+@onready var stage_ui = $StageUI
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$StageUI/HBoxContainer/RetryButton.pressed.connect(_on_retry_pressed)
+	if GameState.is_start_stage:
+		transition.show()
+		transition.play()
+		await transition.finished
+		transition.hide()
+		canvas.show()
+		player.show()
+		GameState.is_intro = true
+		hint.set_label('Go back in the time')
+		hint.show()
+		await get_tree().create_timer(3).timeout
+		hint.hide()
+		GameState.is_intro = false
+		GameState.is_start_stage = false
+
+	canvas.show()
+	player.show()
 	var temp_count = min(GameState.retry_count, wall_sprite.hframes - 1)
 	wall_sprite.frame = temp_count
 	print(wall_sprite.frame, temp_count)
@@ -23,6 +45,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('submit') and player_in_flag_area:
 		await get_tree().create_timer(0.3).timeout
+		GameState.is_start_stage = true
 		get_tree().change_scene_to_file("res://scenes/stages/5/stage_5.tscn")
 
 func _on_retry_pressed() -> void:
