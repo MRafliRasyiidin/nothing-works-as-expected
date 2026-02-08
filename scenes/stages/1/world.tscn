@@ -1,17 +1,37 @@
-[gd_scene load_steps=14 format=3 uid="uid://coev38j4dajql"]
+[gd_scene load_steps=22 format=3 uid="uid://dlhfkl145a8rn"]
 
-[ext_resource type="Texture2D" uid="uid://5njd31scx6ps" path="res://assets/background/IMG_0675.PNG" id="1_1fp7r"]
 [ext_resource type="Script" uid="uid://b2bimrfax3uv0" path="res://scenes/stages/1/world.gd" id="1_7rf37"]
-[ext_resource type="PackedScene" uid="uid://dbtg036s66qab" path="res://scenes/stages/1/stages_1.tscn" id="1_dphjl"]
+[ext_resource type="PackedScene" uid="uid://dbtg036s66qab" path="res://scenes/stages/1/stage_1.tscn" id="1_dphjl"]
 [ext_resource type="Texture2D" uid="uid://ka7ylxnu7ubg" path="res://assets/background/IMG_0676.PNG" id="2_6m72w"]
-[ext_resource type="PackedScene" uid="uid://jr8l4w60yoph" path="res://scenes/transition.tscn" id="5_p2nrf"]
+[ext_resource type="Texture2D" uid="uid://dcnjt6xlnxlbq" path="res://assets/background/Atap.PNG" id="2_7rf37"]
+[ext_resource type="Texture2D" uid="uid://cv2wpeuqf5e4p" path="res://assets/background/Lantai.PNG" id="2_p2nrf"]
+[ext_resource type="Texture2D" uid="uid://dt3gbmw7fl07l" path="res://assets/background/Dinding depan.PNG" id="3_p2nrf"]
+[ext_resource type="PackedScene" uid="uid://dgl7pkhvwwu6b" path="res://scenes/transition.tscn" id="5_p2nrf"]
+[ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="7_7mhy0"]
+[ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="8_jrqv8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl2e5"]
-albedo_texture = ExtResource("1_1fp7r")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rf37"]
+transparency = 1
+albedo_texture = ExtResource("2_p2nrf")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7rf37"]
+material = SubResource("StandardMaterial3D_7rf37")
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fr"]
+transparency = 1
+albedo_texture = ExtResource("2_7rf37")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4rhad"]
-material = SubResource("StandardMaterial3D_sl2e5")
+material = SubResource("StandardMaterial3D_yf5fr")
 size = Vector3(2, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2nrf"]
+albedo_texture = ExtResource("3_p2nrf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7mhy0"]
+material = SubResource("StandardMaterial3D_p2nrf")
+size = Vector2(2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5dby"]
 albedo_texture = ExtResource("2_6m72w")
@@ -40,23 +60,27 @@ background_color = Color(0.048899997, 0.025199996, 0.12, 1)
 script = ExtResource("1_7rf37")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.5591493, 0, 0, 0, 1, 0, 0, 0, 3.1366417, 0, 0, 0)
-mesh = SubResource("BoxMesh_4rhad")
+transform = Transform3D(7.451009, 0, 0, 0, 1, 0, 0, 0, 5.115917, 0, 0, 0)
+mesh = SubResource("BoxMesh_7rf37")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.451009, 0, 0, 0, 1, 0, 0, 0, 5.115917, 0, 0, 0)
+mesh = SubResource("BoxMesh_7rf37")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.5591493, 0, 0, 0, 1, 0, 0, 0, 3.1366417, -0.004, 1.8, 0.002)
+transform = Transform3D(6.42628, 0, 0, 0, 1, 0, 0, 0, 4.72945, -0.004, 1.8, -0.21166024)
 mesh = SubResource("BoxMesh_4rhad")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.5591493, 0, 0, 0, -4.371139e-08, -3.1366417, 0, 1, -1.3710697e-07, -0.004, 1.3124936, -1.6943226)
-mesh = SubResource("BoxMesh_4rhad")
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, -0.004, 0.85141253, -2.208226)
+mesh = SubResource("PlaneMesh_7mhy0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.20969892, 0.8712856, -0.5994094, -0.04759636, 3.9580393, 0, 0.03697558, 0.15363117, 3.3994195, -1.8021421, 0, -0.15287149)
+transform = Transform3D(0.21712908, 0, 0.054211535, 0, 4.05136, 0, -0.0022738534, 0, 5.1766315, -2.0758286, 0, -0.15287149)
 mesh = SubResource("BoxMesh_dphjl")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2096989, -0.8712856, 0.5994094, 0.047596354, 3.9580393, 0, -0.036975574, 0.15363117, 3.3994195, 1.7820903, 0, -0.153)
+transform = Transform3D(0.19892894, -0.5546378, 0.8248588, 0.028400458, 4.074573, -0.0672795, -0.03455334, 0.15588082, 4.6935415, 2.2808657, 0, -0.153)
 mesh = SubResource("BoxMesh_dphjl")
 
 [node name="ViewportMesh" type="MeshInstance3D" parent="."]
@@ -72,6 +96,15 @@ transparent_bg = true
 size = Vector2i(1280, 720)
 
 [node name="Stages1" parent="SubViewport" instance=ExtResource("1_dphjl")]
+
+[node name="StageIntro" parent="SubViewport" instance=ExtResource("7_7mhy0")]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("8_jrqv8")
+autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1558275, 0)
@@ -91,5 +124,6 @@ light_size = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="Transition" parent="CanvasLayer" instance=ExtResource("5_p2nrf")]

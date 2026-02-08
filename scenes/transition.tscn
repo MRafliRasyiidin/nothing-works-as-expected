@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://jr8l4w60yoph"]
+[gd_scene load_steps=6 format=3 uid="uid://dgl7pkhvwwu6b"]
 
-[ext_resource type="Script" uid="uid://bft21sqd6o3eb" path="res://scenes/transition.gd" id="1_rerct"]
+[ext_resource type="Script" path="res://scenes/transition.gd" id="1_rerct"]
+[ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="2_f0i4t"]
 
 [sub_resource type="Animation" id="Animation_f0i4t"]
 length = 0.001
@@ -64,6 +65,7 @@ grow_vertical = 2
 
 [node name="Stage" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f0i4t")
 theme_override_font_sizes/font_size = 36
 text = "Stage 1"
 horizontal_alignment = 1
@@ -81,7 +83,7 @@ libraries = {
 autoplay = "fade"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

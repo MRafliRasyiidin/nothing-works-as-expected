@@ -19,8 +19,8 @@ func _on_area_body_entered(body: Node2D) -> void:
 	flag_area_entered.emit(can_move, body.name)
 	if body.name == "Player":
 		can_move = false
-		is_completed = true
-	if body.name == "Player" and not can_move and animated_sprite.animation != 'run':
+	if (body.name == "Player" and not can_move and is_completed) or (body.name == "Hand"):
+		print('hohhoohohoho')
 		button_texture.show()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

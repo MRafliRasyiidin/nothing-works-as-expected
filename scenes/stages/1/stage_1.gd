@@ -10,6 +10,7 @@ signal dead
 @onready var health_object = $HealthObject
 @onready var fade_effect = $Fade
 @onready var hand_sprite = $Hand/Sprite2D
+@onready var hint = $StageIntro
 @onready var blocking_hand_texture = preload("res://assets/hand/nampar.png")
 @onready var normal_hand_texture = preload("res://assets/hand/regular state.png")
 @onready var anim: AnimationPlayer = $AnimationPlayer
@@ -22,6 +23,8 @@ var can_hand_controlled = true
 var hand_attacking = false
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	dead.connect(_on_restart)
 	flag.flag_area_entered.connect(_on_flag_area_entered)
 	flag.flag_exit_screen.connect(_on_flag_exit_screen)
@@ -31,7 +34,8 @@ func _ready() -> void:
 	anim.play("hand_idle")
 
 func _input(event: InputEvent) -> void:
-	if can_hand_move and can_hand_controlled:
+	if can_hand_move and can_hand_controlled and not GameState.is_intro:
+		print(GameState.is_intro)
 		if event.is_action_pressed("move_hand"):
 			can_hand_move = false
 			GameState.is_hand_attacking = true
@@ -40,6 +44,7 @@ func _input(event: InputEvent) -> void:
 		if flag.is_completed:
 			flag.change_e_texture(true)
 			await get_tree().create_timer(0.2).timeout
+			GameState.is_start_stage = true
 			get_tree().change_scene_to_file("res://scenes/stages/2/stage_2.tscn")
 
 func _on_flag_area_entered(can_move: bool, node_name: String):
@@ -50,6 +55,7 @@ func _on_flag_area_entered(can_move: bool, node_name: String):
 		if flag_tween:
 			flag_tween.kill()
 			can_hand_controlled = false
+			flag.is_completed = true
 			flag.play_animation('idle')
 
 func random_flag_position():
@@ -78,7 +84,7 @@ func move_hand():
 	anim.stop()
 	hand_sprite.texture = blocking_hand_texture
 	var origin = hand.global_position
-	var target_y = 450
+	var target_y = 500
 
 	hand.gravity_scale = -10
 

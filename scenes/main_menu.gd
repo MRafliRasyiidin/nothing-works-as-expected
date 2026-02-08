@@ -68,6 +68,7 @@ func _on_resoluton_selected(index):
 	print(DisplayServer.window_get_size())
 	
 func on_play_pressed() -> void:
+	GameState.is_start_stage = true
 	get_tree().change_scene_to_file("res://scenes/stages/1/world.tscn")
 		
 func on_exit_pressed() -> void:
