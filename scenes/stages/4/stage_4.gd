@@ -13,6 +13,13 @@ var player_in_flag_area: bool = false
 
 func _ready() -> void:
 	$StageUI/HBoxContainer/RetryButton.pressed.connect(_on_retry_pressed)
+	var path = get_tree().current_scene.scene_file_path
+	var file_name = path.get_file().get_basename()
+	var parts = file_name.split("_")
+	var stage_number = int(parts[1])
+	
+	GameState.current_stage = stage_number
+	hint.set_stage(stage_number)
 	if GameState.is_start_stage:
 		transition.show()
 		transition.play()
@@ -21,7 +28,6 @@ func _ready() -> void:
 		canvas.show()
 		player.show()
 		GameState.is_intro = true
-		hint.set_label('Go back in the time')
 		hint.show()
 		await get_tree().create_timer(3).timeout
 		hint.hide()

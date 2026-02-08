@@ -10,6 +10,13 @@ var is_flag_in_frame: bool = false
 var is_item_in_frame: bool = false
 
 func _ready() -> void:
+	var path = get_tree().current_scene.scene_file_path
+	var file_name = path.get_file().get_basename()
+	var parts = file_name.split("_")
+	var stage_number = int(parts[1])
+	
+	GameState.current_stage = stage_number
+	hint.set_stage(stage_number)
 	if GameState.is_start_stage:
 		await show_video()
 		await show_hint()
@@ -43,7 +50,6 @@ func show_hint():
 	
 	hint.global_position = camera.global_position
 	GameState.is_intro = true
-	hint.set_label('Display all items in the camera!')
 	hint.show()
 	await get_tree().create_timer(3).timeout
 	hint.hide()

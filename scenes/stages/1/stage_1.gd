@@ -5,7 +5,7 @@ signal dead
 @onready var flag: Node2D = $Flag
 @onready var hand: RigidBody2D = $Hand
 @onready var player: CharacterBody2D = $Player
-@onready var collision = $HealthBar/RigidBody2D/CollisionShape2D
+#@onready var collision = $HealthBar/RigidBody2D/CollisionShape2D
 @onready var hand_collision = $Hand/CollisionShape2D
 @onready var health_object = $HealthObject
 @onready var fade_effect = $Fade
@@ -13,6 +13,8 @@ signal dead
 @onready var hint = $StageIntro
 @onready var blocking_hand_texture = preload("res://assets/hand/nampar.png")
 @onready var normal_hand_texture = preload("res://assets/hand/regular state.png")
+@onready var anim: AnimationPlayer = $AnimationPlayer
+
 
 var distance_threshold = 100
 var flag_tween: Tween
@@ -21,11 +23,15 @@ var can_hand_controlled = true
 var hand_attacking = false
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	dead.connect(_on_restart)
 	flag.flag_area_entered.connect(_on_flag_area_entered)
 	flag.flag_exit_screen.connect(_on_flag_exit_screen)
 	#player.get_hitted.connect(_on_player_get_hitted)
 	flag.can_move = true
+	
+	anim.play("hand_idle")
 
 func _input(event: InputEvent) -> void:
 	if can_hand_move and can_hand_controlled and not GameState.is_intro:
@@ -53,7 +59,7 @@ func _on_flag_area_entered(can_move: bool, node_name: String):
 			flag.play_animation('idle')
 
 func random_flag_position():
-	flag.play_animation('run')
+	flag.play_animation('run_right')
 	var new_pos = Vector2(5000, -1000)
 	if flag_tween:
 		flag_tween.kill()
@@ -75,6 +81,7 @@ func _on_flag_exit_screen():
 	await fade_effect.play("fade_in")
 
 func move_hand():
+	anim.stop()
 	hand_sprite.texture = blocking_hand_texture
 	var origin = hand.global_position
 	var target_y = 500
@@ -87,6 +94,7 @@ func move_hand():
 	hand.gravity_scale = 10
 
 	hand.gravity_scale = 0
+	
 
 #func attack_player():
 	#hand_attacking = true

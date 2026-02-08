@@ -13,15 +13,22 @@ var outline_mat: ShaderMaterial
 
 var is_patpat: bool = false
 var can_patpat: bool = false
+var is_complete: bool = false
 
 func _ready() -> void:
+	var path = get_tree().current_scene.scene_file_path
+	var file_name = path.get_file().get_basename()
+	var parts = file_name.split("_")
+	var stage_number = int(parts[1])
+	
+	GameState.current_stage = stage_number
+	hint.set_stage(stage_number)
 	if GameState.is_start_stage:
 		transtion.show()
 		transtion.play()
 		await transtion.finished
 		transtion.hide()
 		GameState.is_intro = true
-		hint.set_label('What do you do when you saw a cat?')
 		hint.show()
 		await get_tree().create_timer(3).timeout
 		hint.hide()
@@ -35,6 +42,10 @@ func _input(event: InputEvent) -> void:
 	if not GameState.is_intro:
 		if event.is_action_pressed("move_hand") and not is_patpat and can_patpat:
 			pat_cat()
+		if (event.is_action_pressed("move_hand") or event.is_action_pressed("submit")) and is_complete and $Flag.button_texture.visible:
+			$Flag.change_e_texture(true)
+			await get_tree().create_timer(0.5)
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	
 func _process(delta):
 	if not GameState.is_intro:
@@ -61,5 +72,18 @@ func pat_cat():
 		tween.tween_property(hand, "rotation_degrees", -30, 0.3)
 		tween.tween_property(hand, "rotation_degrees", 10, 0.3)
 	tween.tween_property(hand, "rotation_degrees", origin_rotation, 0.3)
-	await tween.finished
 	is_patpat = false
+	tween.tween_property($Cat, "modulate:a", 0.0, 1)
+	await tween.finished
+	$Cat.hide()
+	is_complete = true
+
+
+func _on_area_area_entered(area: Area2D) -> void:
+	if area.name == "HandArea":
+		$Flag.is_completed = true
+		$Flag.button_texture.show()
+
+func _on_area_area_exited(area: Area2D) -> void:
+	if area.name == "HandArea":
+		$Flag.button_texture.hide()

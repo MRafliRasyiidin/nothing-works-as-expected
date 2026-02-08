@@ -5,6 +5,7 @@ extends Node3D
 @onready var transition = $SubViewport/VideoStreamPlayer
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if GameState.is_start_stage:
 		await transition.finished
 		transition.hide()

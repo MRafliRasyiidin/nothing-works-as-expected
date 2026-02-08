@@ -9,3 +9,5 @@ var is_intro: bool = false
 var is_start_stage: bool = true
 
 var retry_count = 0
+
+var current_stage = 1

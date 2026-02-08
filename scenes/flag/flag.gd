@@ -19,7 +19,7 @@ func _on_area_body_entered(body: Node2D) -> void:
 	flag_area_entered.emit(can_move, body.name)
 	if body.name == "Player":
 		can_move = false
-	if body.name == "Player" and not can_move and is_completed:
+	if (body.name == "Player" and not can_move and is_completed) or (body.name == "Hand"):
 		print('hohhoohohoho')
 		button_texture.show()
 

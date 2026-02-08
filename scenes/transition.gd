@@ -26,9 +26,12 @@ func _ready() -> void:
 	anim.play_backwards("fade")
 	pass # Replace with function body.
 
-func set_stage(num: int):
-	stage.text = "Stage %d" % [GameState.current_stage]
-	hint.text = hints[GameState.current_stage]
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+
 
 func _on_timer_timeout() -> void:
 	print("test")
