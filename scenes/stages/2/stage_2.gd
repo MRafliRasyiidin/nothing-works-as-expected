@@ -8,6 +8,7 @@ extends Control
 var is_completed: bool = false
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	player_animation.play("idle")
 	flag_player.play_animation("idle")
 	health_bar_rigid.timer_empty.connect(_on_timer_empty)

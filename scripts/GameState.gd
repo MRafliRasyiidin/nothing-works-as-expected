@@ -7,3 +7,5 @@ var is_hand_attacking = false
 var is_player_move = false
 
 var retry_count = 0
+
+var current_stage = 1

@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlhfkl145a8rn"]
+[gd_scene load_steps=14 format=3 uid="uid://coev38j4dajql"]
 
 [ext_resource type="Texture2D" uid="uid://5njd31scx6ps" path="res://assets/background/IMG_0675.PNG" id="1_1fp7r"]
-[ext_resource type="Script" uid="uid://b2bimrfax3uv0" path="res://scenes/stages/1/world.gd" id="1_6m72w"]
+[ext_resource type="Script" uid="uid://b2bimrfax3uv0" path="res://scenes/stages/1/world.gd" id="1_7rf37"]
 [ext_resource type="PackedScene" uid="uid://dbtg036s66qab" path="res://scenes/stages/1/stages_1.tscn" id="1_dphjl"]
 [ext_resource type="Texture2D" uid="uid://ka7ylxnu7ubg" path="res://assets/background/IMG_0676.PNG" id="2_6m72w"]
+[ext_resource type="PackedScene" uid="uid://jr8l4w60yoph" path="res://scenes/transition.tscn" id="5_p2nrf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl2e5"]
 albedo_texture = ExtResource("1_1fp7r")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4rhad"]
 material = SubResource("StandardMaterial3D_sl2e5")
-size = Vector3(1, 0.3, 1)
+size = Vector3(2, 0.3, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5dby"]
 albedo_texture = ExtResource("2_6m72w")
@@ -31,8 +32,12 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_dphjl")
 size = Vector2(1.3, 0.75)
 
+[sub_resource type="Environment" id="Environment_7rf37"]
+background_mode = 1
+background_color = Color(0.048899997, 0.025199996, 0.12, 1)
+
 [node name="World" type="Node3D"]
-script = ExtResource("1_6m72w")
+script = ExtResource("1_7rf37")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.5591493, 0, 0, 0, 1, 0, 0, 0, 3.1366417, 0, 0, 0)
@@ -47,19 +52,20 @@ transform = Transform3D(2.5591493, 0, 0, 0, -4.371139e-08, -3.1366417, 0, 1, -1.
 mesh = SubResource("BoxMesh_4rhad")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.20969892, 0.8712856, -0.5994094, -0.04759636, 3.9580393, 0, 0.03697558, 0.15363117, 3.3994195, -1.3871056, 0, -0.15287149)
+transform = Transform3D(0.20969892, 0.8712856, -0.5994094, -0.04759636, 3.9580393, 0, 0.03697558, 0.15363117, 3.3994195, -1.8021421, 0, -0.15287149)
 mesh = SubResource("BoxMesh_dphjl")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2096989, -0.8712856, 0.5994094, 0.047596354, 3.9580393, 0, -0.036975574, 0.15363117, 3.3994195, 1.387, 0, -0.153)
+transform = Transform3D(0.2096989, -0.8712856, 0.5994094, 0.047596354, 3.9580393, 0, -0.036975574, 0.15363117, 3.3994195, 1.7820903, 0, -0.153)
 mesh = SubResource("BoxMesh_dphjl")
 
 [node name="ViewportMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.56, 0.851)
+transform = Transform3D(1, 0, 0, 0, 0.33709523, -0.94147056, 0, 0.94147056, 0.33709523, -0.0014056563, 0.95045984, 0.8922885)
 mesh = SubResource("PlaneMesh_4rhad")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55007493, 1.317)
+transform = Transform3D(1, 0, 0, 0, 0.9378344, 0.3470829, 0, -0.3470829, 0.9378344, 0, 1.1088793, 1.3015801)
+fov = 79.31129
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -69,3 +75,21 @@ size = Vector2i(1280, 720)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1558275, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7rf37")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043704808, 0.9958539, 2.1090066)
+light_color = Color(0.47843137, 0.90588236, 1, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043704808, 0.8660259, -0.48412442)
+light_color = Color(0.58443993, 0.2812, 0.76, 1)
+light_energy = 0.5
+light_size = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Transition" parent="CanvasLayer" instance=ExtResource("5_p2nrf")]

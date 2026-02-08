@@ -1,6 +1,6 @@
 extends Control
 
-@onready var camera: Camera2D = $Camera2D
+#@onready var camera: Camera2D = $Camera2D
 @onready var flag: Node2D = $Flag/Flag
 var is_flag_in_frame: bool = false
 var is_item_in_frame: bool = false
