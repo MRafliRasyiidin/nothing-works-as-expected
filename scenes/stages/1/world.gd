@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not GameState.is_intro:
-		if event.is_action_pressed("move_hand"):
+		if event.is_action_pressed("move_hand") or event.is_action_released("move_hand"):
 			stage._input(event)
-		if event.is_action_pressed("submit") or event.is_action_pressed("move_hand"):
+		if event.is_action_pressed("submit"):
 			stage._input(event)

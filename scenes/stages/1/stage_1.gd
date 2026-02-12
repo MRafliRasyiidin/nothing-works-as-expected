@@ -22,15 +22,18 @@ var can_hand_move = true
 var can_hand_controlled = true
 var hand_attacking = false
 
+var is_hand_moving = false
+var hand_original_position = Vector2.ZERO
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 	dead.connect(_on_restart)
 	flag.flag_area_entered.connect(_on_flag_area_entered)
 	flag.flag_exit_screen.connect(_on_flag_exit_screen)
 	#player.get_hitted.connect(_on_player_get_hitted)
 	flag.can_move = true
 	
+	hand_original_position = hand.global_position
 	anim.play("hand_idle")
 
 func _input(event: InputEvent) -> void:
@@ -40,13 +43,18 @@ func _input(event: InputEvent) -> void:
 			can_hand_move = false
 			GameState.is_hand_attacking = true
 			move_hand()
+	
+	if event.is_action_released("move_hand") and GameState.is_hand_attacking:
+		print("123456781234567234567")
+		retract_hand()
+			
 	if event.is_action_pressed("submit"):
 		if flag.is_completed:
 			flag.change_e_texture(true)
 			await get_tree().create_timer(0.2).timeout
 			GameState.is_start_stage = true
 			get_tree().change_scene_to_file("res://scenes/stages/2/stage_2.tscn")
-
+			
 func _on_flag_area_entered(can_move: bool, node_name: String):
 	if can_move:
 		if node_name == "Player":
@@ -83,19 +91,33 @@ func _on_flag_exit_screen():
 func move_hand():
 	anim.stop()
 	hand_sprite.texture = blocking_hand_texture
-	var origin = hand.global_position
+	is_hand_moving = true
 	var target_y = 500
-
+	
+	hand.freeze = false
 	hand.gravity_scale = -10
-
-	while hand.global_position.y > target_y:
+	
+	while hand.global_position.y > target_y and is_hand_moving:
 		await get_tree().physics_frame
-
-	hand.gravity_scale = 10
-
+	
 	hand.gravity_scale = 0
 	
-
+func retract_hand():
+	is_hand_moving = false
+	hand_sprite.texture = normal_hand_texture
+	hand.freeze = true
+	
+	var retract_tween = create_tween()
+	var distance = hand.global_position.distance_to(hand_original_position)
+	var duration = distance / 2000.0 
+	
+	retract_tween.tween_property(hand, "global_position", hand_original_position, duration)
+	await retract_tween.finished
+	
+	can_hand_move = true
+	GameState.is_hand_attacking = false
+	anim.play("hand_idle")
+	
 #func attack_player():
 	#hand_attacking = true
 	#var origin = hand.global_position
