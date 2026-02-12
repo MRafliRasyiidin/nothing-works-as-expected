@@ -14,7 +14,7 @@ func _ready() -> void:
 	animated_sprite.play("idle")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('submit') and is_completed and button_texture.visible:
+	if event.is_action_pressed('submit') and is_completed:
 		change_e_texture(true)
 		await get_tree().create_timer(0.3).timeout
 		GameState.is_start_stage = true
@@ -22,7 +22,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and is_completed:
-		button_texture.show()
+		#button_texture.show()
+		pass
 
 func play_animation(frame: String):
 	animated_sprite.play(frame)

@@ -26,7 +26,7 @@ func _physics_process(delta):
 			if bar.value != 0:
 				if bar.value >= 100:
 					is_decrease = true
-				if bar.value <= 40:
+				if bar.value <= 85:
 					is_decrease = false
 					
 				if is_decrease:
