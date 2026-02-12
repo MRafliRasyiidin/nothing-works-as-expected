@@ -207,6 +207,7 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="StageUI" type="Control" parent="RigidBody2D"]
 process_mode = 1
+z_index = 2
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -447,6 +448,7 @@ texture = ExtResource("7_llq4q")
 
 [node name="StageIntro" parent="." instance=ExtResource("10_xw33e")]
 visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -457,7 +459,7 @@ scale = Vector2(0.41, 0.41)
 
 [node name="Transition" type="VideoStreamPlayer" parent="."]
 visible = false
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

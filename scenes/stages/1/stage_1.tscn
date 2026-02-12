@@ -16,7 +16,7 @@ size = Vector2(256, 38)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5nic"]
 radius = 101.78015
-height = 701.6255
+height = 625.16235
 
 [sub_resource type="Animation" id="Animation_6dpnc"]
 length = 0.001
@@ -80,6 +80,7 @@ _data = {
 }
 
 [node name="Stages1" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,9 +109,11 @@ texture_progress_offset = Vector2(4, 5)
 position = Vector2(661, 325)
 
 [node name="Player" parent="." instance=ExtResource("3_eyx48")]
+y_sort_enabled = true
 position = Vector2(76, 660)
 
 [node name="HealthObject" type="RigidBody2D" parent="."]
+y_sort_enabled = true
 position = Vector2(262, 664)
 mass = 0.3
 gravity_scale = 0.0
@@ -135,7 +138,7 @@ freeze_mode = 1
 linear_damp = 8.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
-position = Vector2(6.0000076, 2.0000038)
+position = Vector2(16.000008, 32)
 rotation = -0.17453292
 shape = SubResource("CapsuleShape2D_r5nic")
 

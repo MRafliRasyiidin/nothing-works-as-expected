@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bidredhcqmjmp"]
+[gd_scene load_steps=4 format=3 uid="uid://chh6w3jqghibv"]
 
 [ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="1_ltcj5"]
 [ext_resource type="Script" uid="uid://gjolv4wxa15y" path="res://scenes/player/flag_player.gd" id="1_qh530"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uumf"]
-size = Vector2(92, 91)
+size = Vector2(45, 68)
 
 [node name="FlagPlayer" type="CharacterBody2D"]
 script = ExtResource("1_qh530")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-18, 19.5)
+position = Vector2(0.5, 38)
 shape = SubResource("RectangleShape2D_7uumf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("1_ltcj5")
-animation = &"idle_left"
+animation = &"run_down"
 autoplay = "idle2"
+frame_progress = 0.21855828
