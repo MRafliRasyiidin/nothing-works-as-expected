@@ -76,7 +76,9 @@ grow_vertical = 2
 
 [node name="Stage" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.972549, 1, 0.8392157, 1)
+theme_override_colors/font_outline_color = Color(0.08235294, 0.09803922, 0.36862746, 1)
+theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("2_6mp5i")
 theme_override_font_sizes/font_size = 36
 text = "Stage 1"
@@ -84,7 +86,9 @@ horizontal_alignment = 1
 
 [node name="Hint" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.972549, 1, 0.8392157, 1)
+theme_override_colors/font_outline_color = Color(0.08235294, 0.09803922, 0.36862746, 1)
+theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("2_6mp5i")
 theme_override_font_sizes/font_size = 52
 text = "Reach the Flag"
@@ -104,7 +108,9 @@ offset_right = 447.0
 offset_bottom = 70.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.972549, 1, 0.8392157, 1)
+theme_override_colors/font_outline_color = Color(0.07040001, 0.082879946, 0.32, 1)
+theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("2_6mp5i")
 theme_override_font_sizes/font_size = 50
 text = "Easy, just reach the flag!"

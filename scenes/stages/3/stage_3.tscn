@@ -9,7 +9,7 @@
 [ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="7_0fahy"]
 [ext_resource type="Texture2D" uid="uid://sfa75d5wm033" path="res://assets/stage/item/IMG_6037.PNG" id="7_22lcq"]
 [ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="7_llq4q"]
-[ext_resource type="Script" uid="uid://d2c6xiys1vt8l" path="res://scenes/stages/2/stage_ui.gd" id="10_wq0dk"]
+[ext_resource type="Script" path="res://scenes/stages/2/stage_ui.gd" id="10_wq0dk"]
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="10_xw33e"]
 [ext_resource type="Texture2D" uid="uid://cgciicfhw5185" path="res://assets/stage/ui/retry.png" id="11_3qp5c"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="11_22lcq"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dnko660ycdijx" path="res://assets/stage/ui/exit hover.PNG" id="20_vc7nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6t5r"]
-size = Vector2(1234, 148.83333)
+size = Vector2(1234, 211.49997)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j15l0"]
 size = Vector2(30.055786, 712.8334)
@@ -61,7 +61,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2s3n"]
-size = Vector2(39, 27)
+size = Vector2(52, 25)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04jyq"]
 bg_color = Color(0.137255, 0.27451, 0.243137, 0.94902)
@@ -93,6 +93,7 @@ shadow_color = Color(0, 0, 0, 0.15)
 shadow_size = 2
 
 [node name="Stage3" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +125,7 @@ texture = ExtResource("1_djy2v")
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
-position = Vector2(617, 64.41669)
+position = Vector2(617, 95.75)
 shape = SubResource("RectangleShape2D_v6t5r")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
@@ -179,9 +180,11 @@ rect = Rect2(-63, -57, 103, 130)
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Flag"]
 
 [node name="Player" parent="." instance=ExtResource("3_n4le2")]
+y_sort_enabled = true
 position = Vector2(246, 250)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+y_sort_enabled = true
 position = Vector2(305, 307)
 gravity_scale = 0.0
 lock_rotation = true
@@ -195,7 +198,7 @@ autoplay = "idle"
 frame_progress = 0.8151839
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0.5, 3.5)
+position = Vector2(1, 8.5)
 shape = SubResource("RectangleShape2D_h2s3n")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
@@ -454,6 +457,7 @@ scale = Vector2(0.41, 0.41)
 
 [node name="Transition" type="VideoStreamPlayer" parent="."]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://c2yk8wk7f01pi"]
 
-[ext_resource type="PackedScene" uid="uid://bidredhcqmjmp" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
+[ext_resource type="PackedScene" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
 [ext_resource type="Script" uid="uid://brs55ijkv4hup" path="res://scenes/stages/2/stage_2.gd" id="1_tiiek"]
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_0wbof"]
 [ext_resource type="Script" uid="uid://y78f5bj68c1q" path="res://scenes/stages/player_finish.gd" id="3_dg2hc"]
@@ -16,7 +16,7 @@
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="17_4jheh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg2hc"]
-size = Vector2(1234, 148.83333)
+size = Vector2(1234, 212.83331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxm4"]
 size = Vector2(30.055786, 712.8334)
@@ -71,7 +71,7 @@ texture = ExtResource("6_dg2hc")
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
-position = Vector2(617, 64.41669)
+position = Vector2(617, 96.41669)
 shape = SubResource("RectangleShape2D_dg2hc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]

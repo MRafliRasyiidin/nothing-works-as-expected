@@ -29,6 +29,8 @@ func _ready():
 	check_box.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MASTER_BUS_IDX))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_IDX))
+	
+	GameState.current_stage = 1
 
 func on_options_pressed() -> void:
 	#AudioController.play_click()

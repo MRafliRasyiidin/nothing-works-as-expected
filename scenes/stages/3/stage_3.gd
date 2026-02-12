@@ -52,7 +52,7 @@ func show_hint():
 	hint.global_position = camera.global_position
 	GameState.is_intro = true
 	hint.show()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(4).timeout
 	hint.hide()
 	GameState.is_intro = false
 	

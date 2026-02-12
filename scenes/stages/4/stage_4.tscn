@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cvchj3fvtsxu2" path="res://scenes/stages/2/stage_ui.tscn" id="15_0ctgs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdpil"]
-size = Vector2(1234, 148.83333)
+size = Vector2(1234, 212.16666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bajpa"]
 size = Vector2(30.055786, 712.8334)
@@ -119,7 +119,7 @@ texture = ExtResource("3_rmh7k")
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
-position = Vector2(617, 64.41669)
+position = Vector2(617, 96.08336)
 shape = SubResource("RectangleShape2D_rdpil")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]

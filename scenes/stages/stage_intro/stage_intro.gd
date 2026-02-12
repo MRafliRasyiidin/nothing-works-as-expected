@@ -8,7 +8,7 @@ extends Control
 var hints := {
 	1: "Capture the Flag",
 	2: "Finish When The Time Comes",
-	3: "A Flag Is Nothing Without X",
+	3: "A Flag Is Nothing Without E",
 	4: "Go Back In Time",
 	5: "She wants something...",
 }
