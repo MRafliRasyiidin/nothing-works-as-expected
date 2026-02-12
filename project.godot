@@ -13,12 +13,13 @@ config_version=5
 config/name="Nothing Works As Expected"
 run/main_scene="uid://ciuk37pcevia4"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b7hmbd44u1eu5"
 
 [autoload]
 
 GameState="*res://scripts/GameState.gd"
 GlobalSignal="*res://scripts/GlobalSignal.gd"
+MusicManager="*res://scripts/music_manager.gd"
 
 [display]
 

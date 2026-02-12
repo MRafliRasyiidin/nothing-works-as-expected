@@ -184,6 +184,7 @@ position = Vector2(246, 250)
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(305, 307)
 gravity_scale = 0.0
+lock_rotation = true
 linear_damp = 7.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]

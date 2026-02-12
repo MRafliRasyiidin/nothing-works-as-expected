@@ -18,6 +18,7 @@ func _ready() -> void:
 	GameState.current_stage = stage_number
 	hint.set_stage(stage_number)
 	if GameState.is_start_stage:
+		$Transition.show()
 		await $Transition.finished
 		$Transition.hide()
 		GameState.is_intro = true

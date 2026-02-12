@@ -21,6 +21,7 @@ func _ready() -> void:
 	GameState.current_stage = stage_number
 	hint.set_stage(stage_number)
 	if GameState.is_start_stage:
+		GameState.retry_count = 0
 		transition.show()
 		transition.play()
 		await transition.finished

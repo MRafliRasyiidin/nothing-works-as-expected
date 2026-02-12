@@ -7,10 +7,10 @@ extends Node3D
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if GameState.is_start_stage:
+		transition.show()
 		await transition.finished
 		transition.hide()
 		GameState.is_intro = true
-		hint.set_label('Easy, just reach the flag!')
 		hint.show()
 		await get_tree().create_timer(3).timeout
 		hint.hide()

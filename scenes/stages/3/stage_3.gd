@@ -5,6 +5,7 @@ extends Control
 @onready var hint: Control = $StageIntro
 @onready var stage_ui = $StageUI
 @onready var transition: VideoStreamPlayer = $Transition
+@onready var e_texture: Sprite2D = $Node2D/Sprite2D
 
 var is_flag_in_frame: bool = false
 var is_item_in_frame: bool = false
