@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct1pixf2ktb13"]
+
+[ext_resource type="Script" uid="uid://bsj2iy6iw1rq5" path="res://scenes/transition/save_name.gd" id="1_15buh"]
+[ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="1_m22no"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m22no"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15buh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vbi2"]
+
+[node name="SaveName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15buh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11764706, 0.13725491, 0.44313726, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Header" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m22no")
+theme_override_font_sizes/font_size = 40
+text = "Congratulations, you finished the game!"
+
+[node name="EnterName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_m22no")
+theme_override_font_sizes/font_size = 40
+text = "Enter Your Name:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m22no")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m22no")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_15buh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3vbi2")
+placeholder_text = "Name"
+alignment = 1
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 21.0
+offset_right = 136.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("1_m22no")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="Submit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -85.0
+offset_right = -23.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_m22no")
+theme_override_font_sizes/font_size = 40
+text = "Save
+"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgl7pkhvwwu6b"]
 
-[ext_resource type="Script" path="res://scenes/transition.gd" id="1_rerct"]
+[ext_resource type="Script" uid="uid://bft21sqd6o3eb" path="res://scenes/transition/transition.gd" id="1_rerct"]
 [ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="2_f0i4t"]
 
 [sub_resource type="Animation" id="Animation_f0i4t"]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcnjt6xlnxlbq" path="res://assets/background/Atap.PNG" id="2_7rf37"]
 [ext_resource type="Texture2D" uid="uid://cv2wpeuqf5e4p" path="res://assets/background/Lantai.PNG" id="2_p2nrf"]
 [ext_resource type="Texture2D" uid="uid://dt3gbmw7fl07l" path="res://assets/background/Dinding depan.PNG" id="3_p2nrf"]
-[ext_resource type="PackedScene" uid="uid://dgl7pkhvwwu6b" path="res://scenes/transition.tscn" id="5_p2nrf"]
+[ext_resource type="PackedScene" uid="uid://dgl7pkhvwwu6b" path="res://scenes/transition/transition.tscn" id="5_p2nrf"]
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="7_7mhy0"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="8_jrqv8"]
 

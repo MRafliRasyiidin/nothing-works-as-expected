@@ -15,16 +15,20 @@ const MASTER_BUS_IDX = 0
 const MUSIC_BUS_IDX = 1
 
 func _ready():
+	GameState.reset_global_var()
 	$AnimationPlayer.play("wobble")
 	#AudioController.play_music()
 	play.button_down.connect(on_play_pressed)
 	options.button_down.connect(on_options_pressed)
 	exit.button_down.connect(on_exit_pressed)
+	
+	
 	back.button_down.connect(on_options_back_pressed)
 	master_volume.value_changed.connect(_on_master_volume_changed)
 	music_volume.value_changed.connect(_on_music_volume_changed)
 	option_button.item_selected.connect(_on_resoluton_selected)
 	check_box.toggled.connect(_on_fullscreen_pressed)
+	
 	# Initialize volume sliders
 	check_box.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MASTER_BUS_IDX))
@@ -76,6 +80,9 @@ func on_play_pressed() -> void:
 func on_exit_pressed() -> void:
 	#AudioController.play_click()
 	get_tree().quit()
+
+func on_leaderboard_pressed() -> void:
+	pass
 
 #func _on_yes_pressed() -> void:
 	#AudioController.play_click()

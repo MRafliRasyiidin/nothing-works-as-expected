@@ -34,6 +34,7 @@ func _ready() -> void:
 		hint.hide()
 		GameState.is_intro = false
 		GameState.is_start_stage = false
+		GameState.start_time = Time.get_ticks_msec()
 
 	outline_mat = ShaderMaterial.new()
 	outline_mat.shader = outline_shader
@@ -45,7 +46,12 @@ func _input(event: InputEvent) -> void:
 		if (event.is_action_pressed("move_hand") or event.is_action_pressed("submit")) and is_complete and $Flag.button_texture.visible:
 			$Flag.change_e_texture(true)
 			await get_tree().create_timer(0.5)
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			
+			# Save time to global state, copy this to every stage
+			var end_time = Time.get_ticks_msec()
+			var elapsed_time = (end_time - GameState.start_time) / 1000.0
+			GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
+			get_tree().change_scene_to_file("res://scenes/transition/save_name.tscn")
 	
 func _process(delta):
 	if not GameState.is_intro:

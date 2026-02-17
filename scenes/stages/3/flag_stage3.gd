@@ -10,6 +10,7 @@ signal flag_area_exited
 
 var is_completed: bool = false
 
+
 func _ready() -> void:
 	animated_sprite.play("idle")
 
@@ -18,6 +19,12 @@ func _input(event: InputEvent) -> void:
 		change_e_texture(true)
 		await get_tree().create_timer(0.3).timeout
 		GameState.is_start_stage = true
+		
+		# Save time to global state, copy this to every stage
+		var end_time = Time.get_ticks_msec()
+		var elapsed_time = (end_time - GameState.start_time) / 1000.0
+		GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
+		
 		get_tree().change_scene_to_file("res://scenes/stages/4/stage_4.tscn")
 
 func _on_area_body_entered(body: Node2D) -> void:

@@ -22,6 +22,7 @@ func _ready() -> void:
 		await show_video()
 		await show_hint()
 		GameState.is_start_stage = false
+		GameState.start_time = Time.get_ticks_msec()
 
 func _process(delta: float) -> void:
 	if is_flag_in_frame and is_item_in_frame:
