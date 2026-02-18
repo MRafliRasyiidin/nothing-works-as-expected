@@ -1,9 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://dsukcrxiwqkyr"]
+[gd_scene load_steps=37 format=3 uid="uid://dsukcrxiwqkyr"]
 
-[ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="1_djy2v"]
 [ext_resource type="Script" uid="uid://bry7jvfa3hmhx" path="res://scenes/stages/3/stage_3.gd" id="1_k7kex"]
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_n4le2"]
 [ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="3_n4le2"]
+[ext_resource type="Texture2D" uid="uid://cbbv7wobiv4ct" path="res://assets/background/bg imlek.png" id="3_wq0dk"]
 [ext_resource type="Script" uid="uid://dwqrlcl3bmgo1" path="res://scenes/stages/3/flag_stage3.gd" id="6_h2s3n"]
 [ext_resource type="Texture2D" uid="uid://bae266myy7cve" path="res://assets/stage/item/IMG_6036.PNG" id="6_xw33e"]
 [ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="7_0fahy"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://2muu8bvjp2hn" path="res://assets/stage/ui/settings hover.PNG" id="18_xh1qv"]
 [ext_resource type="Texture2D" uid="uid://561fkd2myoio" path="res://assets/stage/ui/exit (2).PNG" id="19_ifr5d"]
 [ext_resource type="Texture2D" uid="uid://dnko660ycdijx" path="res://assets/stage/ui/exit hover.PNG" id="20_vc7nl"]
+[ext_resource type="Texture2D" uid="uid://bg1tvfvf51avn" path="res://assets/background/wall/bg imlek overlay.PNG" id="23_3qp5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6t5r"]
 size = Vector2(1234, 211.49997)
@@ -120,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 pivot_offset = Vector2(670, 345.5)
-texture = ExtResource("1_djy2v")
+texture = ExtResource("3_wq0dk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
 
@@ -459,7 +460,7 @@ scale = Vector2(0.41, 0.41)
 
 [node name="Transition" type="VideoStreamPlayer" parent="."]
 visible = false
-z_index = 2
+z_index = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -475,6 +476,24 @@ grow_vertical = 2
 scale = Vector2(0.196, 0.196)
 stream = ExtResource("11_22lcq")
 autoplay = true
+
+[node name="OverlayDecor" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.0
+offset_top = -269.99997
+offset_right = 789.0
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("23_3qp5c")
 
 [connection signal="body_entered" from="Flag/Flag/Area" to="Flag/Flag" method="_on_area_body_entered"]
 [connection signal="body_exited" from="Flag/Flag/Area" to="Flag/Flag" method="_on_area_body_exited"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgfa84msbjjoi"]
+[gd_scene load_steps=32 format=3 uid="uid://cgfa84msbjjoi"]
 
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="1_bs2yw"]
 [ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="1_q0yau"]
 [ext_resource type="Script" uid="uid://nn082q73ithk" path="res://scenes/stages/4/stage_4.gd" id="1_rdpil"]
-[ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="3_rmh7k"]
+[ext_resource type="Texture2D" uid="uid://cbbv7wobiv4ct" path="res://assets/background/bg imlek.png" id="4_6e0d4"]
 [ext_resource type="Texture2D" uid="uid://0ihy3ltlahk0" path="res://assets/background/wall/wall_deteriorate.png" id="5_rmh7k"]
+[ext_resource type="Texture2D" uid="uid://c8flgyxhi552v" path="res://assets/background/wall/image__2_-removebg-preview.png" id="7_0ctgs"]
 [ext_resource type="Texture2D" uid="uid://u6tupqfrf7v6" path="res://assets/stage/flag/bendera berkibar.png" id="7_bajpa"]
 [ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="8_fe8rg"]
 [ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="9_e3ueb"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="13_kf1su"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="14_6e0d4"]
 [ext_resource type="PackedScene" uid="uid://cvchj3fvtsxu2" path="res://scenes/stages/2/stage_ui.tscn" id="15_0ctgs"]
+[ext_resource type="Texture2D" uid="uid://bg1tvfvf51avn" path="res://assets/background/wall/bg imlek overlay.PNG" id="16_4480o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdpil"]
 size = Vector2(1234, 212.16666)
@@ -114,7 +116,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 pivot_offset = Vector2(670, 345.5)
-texture = ExtResource("3_rmh7k")
+texture = ExtResource("4_6e0d4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
 
@@ -144,14 +146,31 @@ layer = -3
 [node name="BaseBg" parent="CanvasLayer2" instance=ExtResource("1_bs2yw")]
 
 [node name="Wall" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(757, 359)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
+visible = false
 scale = Vector2(0.76, 0.76)
 texture = ExtResource("5_rmh7k")
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+visible = false
+position = Vector2(-1.5, 15)
+shape = SubResource("RectangleShape2D_rmh7k")
+disabled = true
+
+[node name="WallChinese" type="StaticBody2D" parent="."]
+position = Vector2(866, 359)
+
+[node name="Sprite2D" type="Sprite2D" parent="WallChinese"]
+position = Vector2(0, 66)
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("7_0ctgs")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallChinese"]
 position = Vector2(-1.5, 15)
 shape = SubResource("RectangleShape2D_rmh7k")
 
@@ -233,6 +252,7 @@ layout_mode = 1
 
 [node name="Transition" type="VideoStreamPlayer" parent="."]
 visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,6 +263,24 @@ scale = Vector2(0.48, 0.48)
 pivot_offset = Vector2(1336, 751)
 stream = ExtResource("14_6e0d4")
 autoplay = true
+
+[node name="OverlayDecor" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.0
+offset_top = -269.99997
+offset_right = 789.0
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("16_4480o")
 
 [connection signal="body_entered" from="Flag/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Flag/Area2D" to="." method="_on_area_2d_body_exited"]

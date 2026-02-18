@@ -1,12 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2yk8wk7f01pi"]
+[gd_scene load_steps=24 format=3 uid="uid://c2yk8wk7f01pi"]
 
 [ext_resource type="PackedScene" uid="uid://chh6w3jqghibv" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
 [ext_resource type="Script" uid="uid://brs55ijkv4hup" path="res://scenes/stages/2/stage_2.gd" id="1_tiiek"]
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_0wbof"]
+[ext_resource type="Texture2D" uid="uid://bg1tvfvf51avn" path="res://assets/background/wall/bg imlek overlay.PNG" id="2_bysfy"]
+[ext_resource type="Texture2D" uid="uid://cbbv7wobiv4ct" path="res://assets/background/bg imlek.png" id="3_38mr1"]
 [ext_resource type="Script" uid="uid://y78f5bj68c1q" path="res://scenes/stages/player_finish.gd" id="3_dg2hc"]
 [ext_resource type="SpriteFrames" uid="uid://dcadnas5ihgm2" path="res://scenes/player/player.tres" id="3_tiiek"]
 [ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="4_dg2hc"]
-[ext_resource type="Texture2D" uid="uid://birebimapf7j7" path="res://assets/background/Coba cek dulu bgnya bagus ato engga.PNG" id="6_dg2hc"]
 [ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="8_6qvj4"]
 [ext_resource type="Texture2D" uid="uid://cb4u678jfulsc" path="res://assets/stage/health_bar/IMG_0712.PNG" id="8_t6owx"]
 [ext_resource type="Texture2D" uid="uid://c6je86wfu70al" path="res://assets/stage/health_bar/IMG_0711.PNG" id="9_6qvj4"]
@@ -49,6 +50,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tiiek")
 
+[node name="OverlayDecor" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.0
+offset_top = -269.99997
+offset_right = 789.0
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_bysfy")
+
 [node name="BaseBg" parent="." instance=ExtResource("2_0wbof")]
 layout_mode = 1
 
@@ -67,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 pivot_offset = Vector2(670, 345.5)
-texture = ExtResource("6_dg2hc")
+texture = ExtResource("3_38mr1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
 
@@ -182,7 +200,7 @@ layout_mode = 1
 
 [node name="Transition" type="VideoStreamPlayer" parent="."]
 visible = false
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

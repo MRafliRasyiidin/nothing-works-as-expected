@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2aipolaktu8f"]
+
+[ext_resource type="Texture2D" uid="uid://b0iyb7jnambqe" path="res://assets/leaderboard/isian nama.png" id="1_ft55r"]
+[ext_resource type="Script" uid="uid://br8ghmi54pexg" path="res://scenes/main_menu/leaderboard_row.gd" id="1_hof30"]
+[ext_resource type="Texture2D" uid="uid://ouk0al5qhx05" path="res://assets/leaderboard/isian nama pemain yg main.png" id="2_hof30"]
+[ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="3_ivs7g"]
+
+[node name="LeaderboardRow" type="Control"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hof30")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.2857
+offset_top = -40.5
+offset_right = 392.7143
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_ft55r")
+texture_hover = ExtResource("2_hof30")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.428589
+offset_right = -78.42859
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Number" type="Label" parent="TextureButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+theme_override_fonts/font = ExtResource("3_ivs7g")
+theme_override_font_sizes/font_size = 40
+text = "1"
+
+[node name="Name" type="Label" parent="TextureButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_fonts/font = ExtResource("3_ivs7g")
+theme_override_font_sizes/font_size = 40
+text = "Jacksadsadksamdkdsmksa"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Time" type="Label" parent="TextureButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.1
+theme_override_fonts/font = ExtResource("3_ivs7g")
+theme_override_font_sizes/font_size = 40
+text = "123.5"
+horizontal_alignment = 1

@@ -1,7 +1,10 @@
 extends Control
 
-@onready var wall_sprite: Sprite2D = $Wall/Sprite2D
-@onready var wall_col: CollisionShape2D = $Wall/CollisionShape2D
+#@onready var wall_sprite: Sprite2D = $Wall/Sprite2D
+#@onready var wall_col: CollisionShape2D = $Wall/CollisionShape2D
+@onready var wall_sprite: Sprite2D = $WallChinese/Sprite2D
+@onready var wall_col: CollisionShape2D = $WallChinese/CollisionShape2D
+
 
 var player_in_flag_area: bool = false
 @onready var e: TextureRect = $Flag/TextureRect
