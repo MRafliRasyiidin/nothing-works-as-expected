@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://coasmh1is005m"]
+[gd_scene load_steps=5 format=3 uid="uid://coasmh1is005m"]
 
 [ext_resource type="Script" uid="uid://b7kgipic2avtv" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="SpriteFrames" uid="uid://dcadnas5ihgm2" path="res://scenes/player/player.tres" id="2_dovo2"]
+[ext_resource type="SpriteFrames" uid="uid://51r1td1qsrto" path="res://scenes/player/player_horse.tres" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(26, 20)
@@ -13,9 +14,16 @@ script = ExtResource("1_dovo2")
 position = Vector2(-1, 25)
 shape = SubResource("RectangleShape2D_dovo2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="HorseSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("3_gmlin")
+animation = &"idle_left"
+frame_progress = 0.5594652
+speed_scale = 2.0
+
+[node name="HeartSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.667, 0.667)
 sprite_frames = ExtResource("2_dovo2")
 animation = &"start"
-frame_progress = 0.83333355
 speed_scale = 2.0

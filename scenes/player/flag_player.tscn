@@ -16,6 +16,5 @@ shape = SubResource("RectangleShape2D_7uumf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("1_ltcj5")
-animation = &"run_down"
+animation = &"run_right"
 autoplay = "idle2"
-frame_progress = 0.21855828

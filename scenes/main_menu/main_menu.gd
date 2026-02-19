@@ -10,7 +10,7 @@ extends Control
 @onready var music_volume: HSlider = $OptionsMenu/Panel/VBoxContainer/MusicVolume/HSlider
 @onready var option_button: OptionButton = $OptionsMenu/Panel/VBoxContainer/Resolution/OptionButton
 @onready var check_box: CheckBox = $OptionsMenu/Panel/VBoxContainer/Fullscreen/CheckBox
-
+@onready var leaderboard_button: TextureButton = $VBoxContainer/Leaderboard
 const MASTER_BUS_IDX = 0
 const MUSIC_BUS_IDX = 1
 
@@ -21,7 +21,7 @@ func _ready():
 	play.button_down.connect(on_play_pressed)
 	options.button_down.connect(on_options_pressed)
 	exit.button_down.connect(on_exit_pressed)
-	
+	leaderboard_button.pressed.connect(on_leaderboard_pressed)
 	
 	back.button_down.connect(on_options_back_pressed)
 	master_volume.value_changed.connect(_on_master_volume_changed)
@@ -82,7 +82,7 @@ func on_exit_pressed() -> void:
 	get_tree().quit()
 
 func on_leaderboard_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://scenes/main_menu/leaderboard.tscn")
 
 #func _on_yes_pressed() -> void:
 	#AudioController.play_click()

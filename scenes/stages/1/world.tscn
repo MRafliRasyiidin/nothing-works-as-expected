@@ -1,43 +1,55 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlhfkl145a8rn"]
+[gd_scene load_steps=25 format=3 uid="uid://dlhfkl145a8rn"]
 
 [ext_resource type="Script" uid="uid://b2bimrfax3uv0" path="res://scenes/stages/1/world.gd" id="1_7rf37"]
 [ext_resource type="PackedScene" uid="uid://dbtg036s66qab" path="res://scenes/stages/1/stage_1.tscn" id="1_dphjl"]
-[ext_resource type="Texture2D" uid="uid://ka7ylxnu7ubg" path="res://assets/background/IMG_0676.PNG" id="2_6m72w"]
 [ext_resource type="Texture2D" uid="uid://dcnjt6xlnxlbq" path="res://assets/background/Atap.PNG" id="2_7rf37"]
-[ext_resource type="Texture2D" uid="uid://cv2wpeuqf5e4p" path="res://assets/background/Lantai.PNG" id="2_p2nrf"]
-[ext_resource type="Texture2D" uid="uid://dt3gbmw7fl07l" path="res://assets/background/Dinding depan.PNG" id="3_p2nrf"]
+[ext_resource type="Texture2D" uid="uid://uo8g4lawovpe" path="res://assets/background/imlek_3d/Lantai imlek.PNG" id="2_daj50"]
+[ext_resource type="Texture2D" uid="uid://dpn63ml1jcdqi" path="res://assets/background/imlek_3d/Atas imlek.PNG" id="3_w3ji3"]
+[ext_resource type="Texture2D" uid="uid://dy2lfqjaf2rdl" path="res://assets/background/imlek_3d/Dinding depan imlek.PNG" id="4_daj50"]
 [ext_resource type="PackedScene" uid="uid://dgl7pkhvwwu6b" path="res://scenes/transition/transition.tscn" id="5_p2nrf"]
+[ext_resource type="Texture2D" uid="uid://erb6q0bj8qp8" path="res://assets/background/imlek_3d/Dinding samping.PNG" id="6_w3ji3"]
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="7_7mhy0"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="8_jrqv8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rf37"]
 transparency = 1
-albedo_texture = ExtResource("2_p2nrf")
+albedo_texture = ExtResource("2_7rf37")
+uv1_offset = Vector3(1, 1, 1)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_7rf37"]
 material = SubResource("StandardMaterial3D_7rf37")
 size = Vector3(1, 0.3, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_daj50"]
+albedo_texture = ExtResource("2_daj50")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w3ji3"]
+material = SubResource("StandardMaterial3D_daj50")
+size = Vector2(1.92, 1.08)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fr"]
 transparency = 1
-albedo_texture = ExtResource("2_7rf37")
+albedo_texture = ExtResource("3_w3ji3")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4rhad"]
 material = SubResource("StandardMaterial3D_yf5fr")
-size = Vector3(2, 0.3, 1)
+size = Vector3(2, 0.3, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2nrf"]
-albedo_texture = ExtResource("3_p2nrf")
+albedo_texture = ExtResource("4_daj50")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7mhy0"]
 material = SubResource("StandardMaterial3D_p2nrf")
-size = Vector2(2, 1)
+size = Vector2(2.496, 1.404)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5dby"]
-albedo_texture = ExtResource("2_6m72w")
+albedo_texture = ExtResource("6_w3ji3")
+uv1_scale = Vector3(2.25, 2.25, 2.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dphjl"]
 material = SubResource("StandardMaterial3D_v5dby")
+size = Vector3(1, 1, 2)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dphjl"]
 viewport_path = NodePath("SubViewport")
@@ -59,28 +71,33 @@ background_color = Color(0.048899997, 0.025199996, 0.12, 1)
 [node name="World" type="Node3D"]
 script = ExtResource("1_7rf37")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.451009, 0, 0, 0, 1, 0, 0, 0, 5.115917, 0, 0, 0)
+[node name="Bottom" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.451009, 0, 0, 0, 1, 0, 0, 0, 5.115917, 0, -0.52989554, -0.26347494)
 mesh = SubResource("BoxMesh_7rf37")
+
+[node name="Carpet" type="MeshInstance3D" parent="Bottom"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.155, 0)
+mesh = SubResource("PlaneMesh_w3ji3")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.451009, 0, 0, 0, 1, 0, 0, 0, 5.115917, 0, 0, 0)
+transform = Transform3D(7.451009, 0, 0, 0, 1, 0, 0, 0, 5.115917, 0, -0.59240246, 0)
+visible = false
 mesh = SubResource("BoxMesh_7rf37")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.42628, 0, 0, 0, 1, 0, 0, 0, 4.72945, -0.004, 1.8, -0.21166024)
+[node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.42628, 0, 0, 0, 1, 0, 0, 0, 4.72945, -0.004, 2.399678, -0.21166024)
 mesh = SubResource("BoxMesh_4rhad")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, -0.004, 0.85141253, -2.208226)
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.31483388, -1.9750645, 0, 1.9750645, 0.31483388, -0.004, 0.85141253, -3.2210143)
 mesh = SubResource("PlaneMesh_7mhy0")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.21712908, 0, 0.054211535, 0, 4.05136, 0, -0.0022738534, 0, 5.1766315, -2.0758286, 0, -0.15287149)
+[node name="Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2170428, 0.11418083, 0.05418999, -0.0061194203, 4.049751, -0.0015278613, -0.002273853, 2.4118824e-10, 5.176631, -2.5486104, 0.83585346, -0.15287149)
 mesh = SubResource("BoxMesh_dphjl")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.19892894, -0.5546378, 0.8248588, 0.028400458, 4.074573, -0.0672795, -0.03455334, 0.15588082, 4.6935415, 2.2808657, 0, -0.153)
+[node name="Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.20367561, -0.1909064, 0, 0.009459034, 4.1106715, 0, 0, 0, 4.7659473, 2.5412455, 0.749606, -0.2890023)
 mesh = SubResource("BoxMesh_dphjl")
 
 [node name="ViewportMesh" type="MeshInstance3D" parent="."]
@@ -115,8 +132,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1558275, 0)
 environment = SubResource("Environment_7rf37")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043704808, 0.9958539, 2.1090066)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043704808, 0.9958539, -0.765579)
 light_color = Color(0.47843137, 0.90588236, 1, 1)
+light_energy = 1.5
+omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043704808, 0.8660259, -0.48412442)

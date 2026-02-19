@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2yk8wk7f01pi"]
+[gd_scene load_steps=25 format=3 uid="uid://c2yk8wk7f01pi"]
 
 [ext_resource type="PackedScene" uid="uid://chh6w3jqghibv" path="res://scenes/player/flag_player.tscn" id="1_sv1x6"]
 [ext_resource type="Script" uid="uid://brs55ijkv4hup" path="res://scenes/stages/2/stage_2.gd" id="1_tiiek"]
@@ -9,6 +9,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dcadnas5ihgm2" path="res://scenes/player/player.tres" id="3_tiiek"]
 [ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="4_dg2hc"]
 [ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="8_6qvj4"]
+[ext_resource type="SpriteFrames" uid="uid://51r1td1qsrto" path="res://scenes/player/player_horse.tres" id="8_dcvu1"]
 [ext_resource type="Texture2D" uid="uid://cb4u678jfulsc" path="res://assets/stage/health_bar/IMG_0712.PNG" id="8_t6owx"]
 [ext_resource type="Texture2D" uid="uid://c6je86wfu70al" path="res://assets/stage/health_bar/IMG_0711.PNG" id="9_6qvj4"]
 [ext_resource type="Texture2D" uid="uid://0pbi16w8ewv" path="res://assets/stage/health_bar/clock.png" id="11_ur4b4"]
@@ -113,9 +114,27 @@ shape = SubResource("RectangleShape2D_rkiwu")
 position = Vector2(355, 320)
 script = ExtResource("3_dg2hc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerFinish"]
+[node name="HeartAnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerFinish"]
+visible = false
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("3_tiiek")
+animation = &"start"
+
+[node name="TextureRect" type="TextureRect" parent="PlayerFinish/HeartAnimatedSprite2D"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = -107.14286
+offset_right = -32.5
+offset_bottom = -64.14286
+grow_horizontal = 2
+texture = ExtResource("4_dg2hc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerFinish"]
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("8_dcvu1")
 animation = &"start"
 
 [node name="TextureRect" type="TextureRect" parent="PlayerFinish/AnimatedSprite2D"]

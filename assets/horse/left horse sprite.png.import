@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ouk0al5qhx05"
-path="res://.godot/imported/isian nama pemain yg main.png-31869ba41f4a5fc188472de545914afd.ctex"
+uid="uid://d2x4qasxppmw7"
+path="res://.godot/imported/left horse sprite.png-fb7d4ff68463cc3475fb574cca6b22f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/leaderboard/isian nama pemain yg main.png"
-dest_files=["res://.godot/imported/isian nama pemain yg main.png-31869ba41f4a5fc188472de545914afd.ctex"]
+source_file="res://assets/horse/left horse sprite.png"
+dest_files=["res://.godot/imported/left horse sprite.png-fb7d4ff68463cc3475fb574cca6b22f3.ctex"]
 
 [params]
 
