@@ -49,6 +49,14 @@ func reset_global_var():
 		"total": 0,
 	}
 
+var hints := {
+	1: ["Capture the Flag"],
+	2: ["Finish When The Time Comes", "uh yes"],
+	3: ["A Flag Is Nothing Without E"],
+	4: ["Go Back In Time"],
+	5: ["She wants something..."],
+}
+
 func add_to_leaderboard():
 	var sum = 0
 	for i in range(1, total_stage+1):

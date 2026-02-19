@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvchj3fvtsxu2"]
+[gd_scene load_steps=19 format=3 uid="uid://cvchj3fvtsxu2"]
 
 [ext_resource type="Script" uid="uid://d2c6xiys1vt8l" path="res://scenes/stages/2/stage_ui.gd" id="1_4pp44"]
 [ext_resource type="Texture2D" uid="uid://cgciicfhw5185" path="res://assets/stage/ui/retry.png" id="1_dejwn"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://2muu8bvjp2hn" path="res://assets/stage/ui/settings hover.PNG" id="9_d4pai"]
 [ext_resource type="Texture2D" uid="uid://561fkd2myoio" path="res://assets/stage/ui/exit (2).PNG" id="10_04jyq"]
 [ext_resource type="Texture2D" uid="uid://dnko660ycdijx" path="res://assets/stage/ui/exit hover.PNG" id="11_onpeg"]
+[ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="12_onpeg"]
+[ext_resource type="Texture2D" uid="uid://bo2hwngwrsegn" path="res://assets/stage/ui/back.PNG" id="13_5f67d"]
+[ext_resource type="Texture2D" uid="uid://blkl0c2n1nimh" path="res://assets/stage/ui/back hover.PNG" id="14_ufvri"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04jyq"]
 bg_color = Color(0.137255, 0.27451, 0.243137, 0.94902)
@@ -57,13 +60,18 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -149.0
+offset_left = -224.0
 offset_top = 7.0
-offset_right = 311.0
+offset_right = 496.0
 offset_bottom = 207.0
 grow_horizontal = 0
 scale = Vector2(0.3, 0.3)
 theme_override_constants/separation = 60
+
+[node name="HintButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_dejwn")
+texture_hover = ExtResource("2_4pp44")
 
 [node name="RetryButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
@@ -265,6 +273,74 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5f67d")
 text = "Back
 "
 
+[node name="Hint" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Hint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36862746, 0.36862746, 0.36862746, 0.7921569)
+
+[node name="HintTitle" type="Label" parent="Hint"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_top = 32.0
+offset_right = 68.5
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_onpeg")
+theme_override_font_sizes/font_size = 60
+text = "Hint"
+
+[node name="MarginContainer" type="MarginContainer" parent="Hint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 126.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HintText" type="Label" parent="Hint/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("12_onpeg")
+theme_override_font_sizes/font_size = 50
+autowrap_mode = 2
+
+[node name="BackHint" type="TextureButton" parent="Hint"]
+layout_mode = 0
+offset_left = 17.000002
+offset_top = 12.000001
+offset_right = 217.0
+offset_bottom = 212.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("13_5f67d")
+texture_hover = ExtResource("14_ufvri")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="pressed" from="HBoxContainer/HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/PausePopup/ContinueButton" to="." method="_on_continue_button_pressed"]
@@ -272,3 +348,4 @@ text = "Back
 [connection signal="pressed" from="Control/PausePopup/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/OptionsMenu/Panel/VBoxContainer/Fullscreen/CheckBox" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="Control/OptionsMenu/Panel/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Hint/BackHint" to="." method="_on_back_hint_pressed"]
