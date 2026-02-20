@@ -15,6 +15,8 @@ var is_patpat: bool = false
 var can_patpat: bool = false
 var is_complete: bool = false
 
+var can_move: bool = false
+
 func _ready() -> void:
 	var path = get_tree().current_scene.scene_file_path
 	var file_name = path.get_file().get_basename()
@@ -38,6 +40,7 @@ func _ready() -> void:
 
 	outline_mat = ShaderMaterial.new()
 	outline_mat.shader = outline_shader
+	can_move = true
 
 func _input(event: InputEvent) -> void:
 	if not GameState.is_intro:
@@ -54,7 +57,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().change_scene_to_file("res://scenes/transition/save_name.tscn")
 	
 func _process(delta):
-	if not GameState.is_intro:
+	if not GameState.is_intro and can_move:
 		if not is_patpat:
 			hand.global_position = get_global_mouse_position()
 

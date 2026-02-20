@@ -11,13 +11,13 @@
 [ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="4_es6du"]
 [ext_resource type="Texture2D" uid="uid://c2c6mq4tkes5b" path="res://assets/stage/cat/IMG_6023.PNG" id="4_xe64s"]
 [ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="5_1u5ce"]
-[ext_resource type="Texture2D" uid="uid://bwea8nomtd6lj" path="res://assets/hand/regular state.png" id="6_datci"]
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="10_xe64s"]
 [ext_resource type="PackedScene" uid="uid://cvchj3fvtsxu2" path="res://scenes/stages/2/stage_ui.tscn" id="11_udoku"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="11_vtgqv"]
 [ext_resource type="Texture2D" uid="uid://cl8ksaie2wieb" path="res://assets/horse/portrait/IMG_6147.PNG" id="12_1cco7"]
 [ext_resource type="Texture2D" uid="uid://dbi65vn4swj7m" path="res://assets/horse/portrait/IMG_6145.PNG" id="13_2aub0"]
 [ext_resource type="Texture2D" uid="uid://cngrprj4arpv8" path="res://assets/horse/portrait/IMG_6146.PNG" id="14_m38eo"]
+[ext_resource type="Texture2D" uid="uid://pfayya0wykp0" path="res://assets/hand/tangan angpao.png" id="15_1cco7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
 size = Vector2(167, 151)
@@ -78,7 +78,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_datci"]
-size = Vector2(250, 107.5)
+size = Vector2(187, 386)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_datci"]
 radius = 87.19757
@@ -149,7 +149,7 @@ frame_progress = 0.4207559
 [node name="Area2D" type="Area2D" parent="Cat"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/Area2D"]
-position = Vector2(648, 213.25)
+position = Vector2(610.5, 360)
 shape = SubResource("RectangleShape2D_datci")
 
 [node name="Node2D2" type="Node2D" parent="."]
@@ -161,8 +161,8 @@ position = Vector2(1101, 624.9999)
 rotation = -0.41223142
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_datci")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_1cco7")
 
 [node name="HandArea" type="Area2D" parent="Hand"]
 
