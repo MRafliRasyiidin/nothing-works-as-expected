@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl83lryx65emg"]
+[gd_scene load_steps=6 format=3 uid="uid://cl83lryx65emg"]
 
 [ext_resource type="Script" uid="uid://827bdennwlol" path="res://scenes/main_menu/leaderboard.gd" id="1_kh23b"]
 [ext_resource type="Texture2D" uid="uid://dvvy333fqxd00" path="res://assets/leaderboard/IMG_0815 (1).png" id="1_olosb"]
+[ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_ji2cf"]
 [ext_resource type="Texture2D" uid="uid://bcegtbx0vieuc" path="res://assets/leaderboard/back leaderboard.PNG" id="3_f0lim"]
 [ext_resource type="Texture2D" uid="uid://c2bsv82mdwol2" path="res://assets/leaderboard/back leaderboard hover.PNG" id="4_ji2cf"]
 
@@ -13,6 +14,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kh23b")
+
+[node name="BaseBg" parent="." instance=ExtResource("2_ji2cf")]
+layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

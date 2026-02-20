@@ -6,6 +6,8 @@ extends Control
 @onready var stage_ui = $StageUI
 @onready var transition: VideoStreamPlayer = $Transition
 @onready var e_texture: Sprite2D = $Node2D/Sprite2D
+@onready var e_img = preload("res://assets/stage/ui/E.png")
+@onready var e_img_hovered = preload("res://assets/stage/ui/E Ditekan.png")
 
 var is_flag_in_frame: bool = false
 var is_item_in_frame: bool = false
@@ -18,6 +20,9 @@ func _ready() -> void:
 	
 	GameState.current_stage = stage_number
 	hint.set_stage(stage_number)
+	flag.flag_area_entered.connect(_on_flag_area_entered)
+	flag.flag_area_exited.connect(_on_flag_area_exited)
+	
 	if GameState.is_start_stage:
 		await show_video()
 		await show_hint()
@@ -68,3 +73,9 @@ func show_video():
 	GameState.is_intro = false
 	await transition.finished
 	transition.hide()
+	
+func _on_flag_area_entered():
+	e_texture.texture = e_img_hovered
+	
+func _on_flag_area_exited():
+	e_texture.texture = e_img

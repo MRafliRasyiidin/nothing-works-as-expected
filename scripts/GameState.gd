@@ -52,7 +52,7 @@ func reset_global_var():
 var hints := {
 	1: ["Capture the Flag"],
 	2: ["Finish When The Time Comes", "uh yes"],
-	3: ["A Flag Is Nothing Without E"],
+	3: ["A Flag Is Nothing Without E", "Flagged"],
 	4: ["Go Back In Time"],
 	5: ["She wants something..."],
 }

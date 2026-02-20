@@ -10,7 +10,7 @@ extends Control
 @onready var music_volume: HSlider = $OptionsMenu/Panel/VBoxContainer/MusicVolume/HSlider
 @onready var option_button: OptionButton = $OptionsMenu/Panel/VBoxContainer/Resolution/OptionButton
 @onready var check_box: CheckBox = $OptionsMenu/Panel/VBoxContainer/Fullscreen/CheckBox
-@onready var leaderboard_button: TextureButton = $VBoxContainer/Leaderboard
+@onready var leaderboard_button: TextureButton = $Leaderboard
 const MASTER_BUS_IDX = 0
 const MUSIC_BUS_IDX = 1
 
@@ -33,7 +33,6 @@ func _ready():
 	check_box.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MASTER_BUS_IDX))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_IDX))
-	
 	GameState.current_stage = 1
 
 func on_options_pressed() -> void:
@@ -79,6 +78,7 @@ func on_play_pressed() -> void:
 		
 func on_exit_pressed() -> void:
 	#AudioController.play_click()
+	print('herweasdasd')
 	get_tree().quit()
 
 func on_leaderboard_pressed() -> void:

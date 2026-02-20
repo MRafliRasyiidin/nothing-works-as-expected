@@ -24,7 +24,6 @@ func _ready() -> void:
 	timer.start()
 	await timer.timeout
 	anim.play_backwards("fade")
-	pass # Replace with function body.
 
 func set_stage(num: int):
 	stage.text = "Stage %d" % [GameState.current_stage]

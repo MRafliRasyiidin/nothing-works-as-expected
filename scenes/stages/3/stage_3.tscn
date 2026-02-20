@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dsukcrxiwqkyr"]
+[gd_scene load_steps=45 format=3 uid="uid://dsukcrxiwqkyr"]
 
 [ext_resource type="Script" uid="uid://bry7jvfa3hmhx" path="res://scenes/stages/3/stage_3.gd" id="1_k7kex"]
 [ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_n4le2"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="10_xw33e"]
 [ext_resource type="Texture2D" uid="uid://cgciicfhw5185" path="res://assets/stage/ui/retry.png" id="11_3qp5c"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="11_22lcq"]
+[ext_resource type="Texture2D" uid="uid://cvg61l3732u01" path="res://assets/stage/ui/hint.png" id="11_bm81y"]
+[ext_resource type="Texture2D" uid="uid://ijgpmp2yn6lu" path="res://assets/stage/ui/hint hover.PNG" id="12_6mmgt"]
 [ext_resource type="Texture2D" uid="uid://ooh1w1823fc8" path="res://assets/stage/ui/retry hover.PNG" id="12_gph0c"]
 [ext_resource type="Texture2D" uid="uid://dng21hjto6tw3" path="res://assets/stage/ui/pause (1).PNG" id="13_mpxh8"]
 [ext_resource type="Texture2D" uid="uid://bahpi1u4in6pg" path="res://assets/stage/ui/pause hover (1).PNG" id="14_di64b"]
@@ -22,7 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://2muu8bvjp2hn" path="res://assets/stage/ui/settings hover.PNG" id="18_xh1qv"]
 [ext_resource type="Texture2D" uid="uid://561fkd2myoio" path="res://assets/stage/ui/exit (2).PNG" id="19_ifr5d"]
 [ext_resource type="Texture2D" uid="uid://dnko660ycdijx" path="res://assets/stage/ui/exit hover.PNG" id="20_vc7nl"]
+[ext_resource type="FontFile" uid="uid://de4pwi8saajly" path="res://assets/font/Cuteoff.ttf" id="21_di64b"]
+[ext_resource type="Texture2D" uid="uid://bo2hwngwrsegn" path="res://assets/stage/ui/back.PNG" id="22_f56pu"]
 [ext_resource type="Texture2D" uid="uid://bg1tvfvf51avn" path="res://assets/background/wall/bg imlek overlay.PNG" id="23_3qp5c"]
+[ext_resource type="Texture2D" uid="uid://blkl0c2n1nimh" path="res://assets/stage/ui/back hover.PNG" id="23_bm81y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6t5r"]
 size = Vector2(1234, 211.49997)
@@ -92,6 +97,42 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 shadow_color = Color(0, 0, 0, 0.15)
 shadow_size = 2
+
+[sub_resource type="Animation" id="Animation_f0i4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rerct"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_px735"]
+_data = {
+&"RESET": SubResource("Animation_f0i4t"),
+&"fade": SubResource("Animation_rerct")
+}
 
 [node name="Stage3" type="Control"]
 y_sort_enabled = true
@@ -209,15 +250,19 @@ zoom = Vector2(2.5, 2.5)
 [node name="StageUI" type="Control" parent="RigidBody2D"]
 process_mode = 1
 z_index = 2
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 258.0
-offset_top = -142.00002
-offset_right = 258.0
-offset_bottom = -142.00002
-grow_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -143.5
+offset_right = 1023.5
+offset_bottom = 559.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 script = ExtResource("10_wq0dk")
 
@@ -227,13 +272,18 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -149.0
-offset_top = 7.0
-offset_right = 311.0
-offset_bottom = 207.0
+offset_left = -222.5
+offset_top = 7.5
+offset_right = 497.5
+offset_bottom = 207.5
 grow_horizontal = 0
 scale = Vector2(0.3, 0.3)
 theme_override_constants/separation = 60
+
+[node name="HintButton" type="TextureButton" parent="RigidBody2D/StageUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_bm81y")
+texture_hover = ExtResource("12_6mmgt")
 
 [node name="RetryButton" type="TextureButton" parent="RigidBody2D/StageUI/HBoxContainer"]
 layout_mode = 2
@@ -251,10 +301,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -624.99994
-offset_top = 355.0
-offset_right = -624.99994
-offset_bottom = 355.0
+offset_left = -1.25
+offset_top = -1.25
+offset_bottom = 16.249878
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -439,6 +488,166 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5f67d")
 text = "Back
 "
 
+[node name="Hint" type="Control" parent="RigidBody2D/StageUI"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.25
+offset_top = -1.25
+offset_bottom = 18.749878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D/StageUI/Hint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36862746, 0.36862746, 0.36862746, 0.7921569)
+
+[node name="HintTitle" type="Label" parent="RigidBody2D/StageUI/Hint"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_top = 32.0
+offset_right = 68.5
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("21_di64b")
+theme_override_font_sizes/font_size = 60
+text = "Hint"
+
+[node name="MarginContainer" type="MarginContainer" parent="RigidBody2D/StageUI/Hint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 126.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HintText" type="Label" parent="RigidBody2D/StageUI/Hint/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("21_di64b")
+theme_override_font_sizes/font_size = 50
+autowrap_mode = 2
+
+[node name="BackHint" type="TextureButton" parent="RigidBody2D/StageUI/Hint"]
+layout_mode = 0
+offset_left = 17.000002
+offset_top = 12.000001
+offset_right = 217.0
+offset_bottom = 212.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("22_f56pu")
+texture_hover = ExtResource("23_bm81y")
+
+[node name="Timer" type="Timer" parent="RigidBody2D/StageUI"]
+wait_time = 10.0
+autostart = true
+
+[node name="StageIntro" type="Control" parent="RigidBody2D/StageUI"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D/StageUI/StageIntro"]
+visible = false
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11372549, 0.11372549, 0.11372549, 0.94509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RigidBody2D/StageUI/StageIntro"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.5
+offset_top = -76.0
+offset_right = 194.5
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stage" type="Label" parent="RigidBody2D/StageUI/StageIntro/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 1, 0.8392157, 1)
+theme_override_colors/font_outline_color = Color(0.08235294, 0.09803922, 0.36862746, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("21_di64b")
+theme_override_font_sizes/font_size = 36
+text = "Stage 1"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="RigidBody2D/StageUI/StageIntro/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 1, 0.8392157, 1)
+theme_override_colors/font_outline_color = Color(0.08235294, 0.09803922, 0.36862746, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("21_di64b")
+theme_override_font_sizes/font_size = 52
+text = "Reach the Flag"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="RigidBody2D/StageUI/StageIntro"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -447.0
+offset_top = -70.5
+offset_right = 447.0
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.972549, 1, 0.8392157, 1)
+theme_override_colors/font_outline_color = Color(0.07040001, 0.082879946, 0.32, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("21_di64b")
+theme_override_font_sizes/font_size = 50
+text = "Easy, just reach the flag!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D/StageUI/StageIntro"]
+libraries = {
+&"": SubResource("AnimationLibrary_px735")
+}
+autoplay = "fade"
+
+[node name="Timer" type="Timer" parent="RigidBody2D/StageUI/StageIntro"]
+wait_time = 3.5
+autostart = true
+
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(799, 572)
 
@@ -486,7 +695,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -451.0
-offset_top = -269.99997
+offset_top = -270.0
 offset_right = 789.0
 offset_bottom = 439.0
 grow_horizontal = 2
@@ -500,6 +709,7 @@ texture = ExtResource("23_3qp5c")
 [connection signal="screen_exited" from="Flag/Flag/VisibleOnScreenNotifier2D" to="Flag/Flag" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_entered" from="Flag/VisibleOnScreenNotifier2D" to="." method="_on_visible_flag_screen_entered"]
 [connection signal="screen_exited" from="Flag/VisibleOnScreenNotifier2D" to="." method="_on_visible_flag_screen_exited"]
+[connection signal="pressed" from="RigidBody2D/StageUI/HBoxContainer/HintButton" to="RigidBody2D/StageUI" method="_on_hint_button_pressed"]
 [connection signal="pressed" from="RigidBody2D/StageUI/HBoxContainer/RetryButton" to="RigidBody2D/StageUI" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="RigidBody2D/StageUI/HBoxContainer/PauseButton" to="RigidBody2D/StageUI" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="RigidBody2D/StageUI/Control/PausePopup/ContinueButton" to="RigidBody2D/StageUI" method="_on_continue_button_pressed"]
@@ -507,5 +717,6 @@ texture = ExtResource("23_3qp5c")
 [connection signal="pressed" from="RigidBody2D/StageUI/Control/PausePopup/Exit" to="RigidBody2D/StageUI" method="_on_exit_pressed"]
 [connection signal="pressed" from="RigidBody2D/StageUI/Control/OptionsMenu/Panel/VBoxContainer/Fullscreen/CheckBox" to="RigidBody2D/StageUI" method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="RigidBody2D/StageUI/Control/OptionsMenu/Panel/Back" to="RigidBody2D/StageUI" method="_on_back_pressed"]
+[connection signal="pressed" from="RigidBody2D/StageUI/Hint/BackHint" to="RigidBody2D/StageUI" method="_on_back_hint_pressed"]
 [connection signal="screen_entered" from="Node2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_item_screen_entered"]
 [connection signal="screen_exited" from="Node2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_item_screen_exited"]

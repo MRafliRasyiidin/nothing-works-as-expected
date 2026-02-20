@@ -30,6 +30,7 @@ func _input(event: InputEvent) -> void:
 func _on_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and is_completed:
 		#button_texture.show()
+		emit_signal("flag_area_entered")
 		pass
 
 func play_animation(frame: String):
@@ -43,4 +44,5 @@ func change_e_texture(is_hover: bool):
 
 func _on_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
+		emit_signal("flag_area_exited")
 		button_texture.hide()

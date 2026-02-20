@@ -7,6 +7,11 @@ extends Control
 @onready var hint_text: Label = $Hint/MarginContainer/HintText
 @onready var timer: Timer = $Timer
 
+@onready var stage: Label = $StageIntro/VBoxContainer/Stage
+@onready var hint_anim_label: Label = $StageIntro/VBoxContainer/Hint
+@onready var anim: AnimationPlayer = $StageIntro/AnimationPlayer
+@onready var timer_anim: Timer = $StageIntro/Timer
+
 var current_hint: int = 1
 
 func _ready() -> void:
@@ -26,6 +31,7 @@ func _on_continue_button_pressed() -> void:
 	pause_popup.hide()
 
 func _on_exit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 func _on_settings_pressed() -> void:
@@ -48,6 +54,7 @@ func _on_back_pressed() -> void:
 	options_menu.hide()
 
 func _on_hint_button_pressed() -> void:
+	get_tree().paused = true
 	var hint_list = GameState.hints[GameState.current_stage]
 	var concated_hint = ""
 	for i in range(current_hint):
@@ -56,10 +63,25 @@ func _on_hint_button_pressed() -> void:
 	hint.show()
 
 func _on_back_hint_pressed() -> void:
+	get_tree().paused = false
 	hint.hide()
 
 func _on_timer_timeout():
+	print('ayaamam')
 	if current_hint < len(GameState.hints[GameState.current_stage]):
 		current_hint += 1
-	print(current_hint)
-	print('aYAYAYAYA')
+		await display_new_hint()
+		print('ayayayaay')
+
+func display_new_hint():
+	$StageIntro.show()
+	stage.text = "New Hint"
+	hint_anim_label.text = GameState.hints[GameState.current_stage][current_hint-1]
+	anim.stop()
+	get_tree().paused = true
+	anim.play("fade")
+	timer_anim.start()
+	await timer_anim.timeout
+	anim.play_backwards("fade")
+	$StageIntro.hide()
+	get_tree().paused = false

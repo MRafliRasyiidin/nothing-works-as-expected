@@ -142,11 +142,12 @@ visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -67.5
-offset_top = -107.14286
-offset_right = -32.5
-offset_bottom = -64.14286
+offset_left = -1057.5
+offset_top = -1500.0
+offset_right = -1022.5
+offset_bottom = -1457.0
 grow_horizontal = 2
+scale = Vector2(15, 15)
 texture = ExtResource("4_dg2hc")
 
 [node name="Area" type="Area2D" parent="PlayerFinish"]
