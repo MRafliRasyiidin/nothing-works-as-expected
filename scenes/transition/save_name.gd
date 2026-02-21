@@ -9,6 +9,12 @@ func _ready():
 	submit_button.pressed.connect(Callable(self, "_on_submit_pressed"))
 	exit_button.pressed.connect(Callable(self, "_on_exit_pressed"))
 	
+func _process(delta: float) -> void:
+	if not line_edit.text.strip_edges().is_empty():
+		submit_button.disabled = false
+	else:
+		submit_button.disabled = true
+
 func _on_submit_pressed():
 	if not line_edit.text.strip_edges().is_empty():
 		GameState.player_name = line_edit.text

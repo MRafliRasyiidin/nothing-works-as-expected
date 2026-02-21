@@ -18,7 +18,6 @@ var hints := {
 func _ready() -> void:
 	stage.text = "Stage %d" % [GameState.current_stage]
 	hint.text = hints[GameState.current_stage]
-	#print(GameState.current_stage)
 	anim.stop()
 	await timer.timeout
 	anim.play("fade")
@@ -29,7 +28,3 @@ func _ready() -> void:
 func set_stage(num: int):
 	stage.text = "Stage %d" % [GameState.current_stage]
 	hint.text = hints[GameState.current_stage]
-
-func _on_timer_timeout() -> void:
-	print("test")
-	pass # Replace with function body.

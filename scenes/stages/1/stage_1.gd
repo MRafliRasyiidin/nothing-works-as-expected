@@ -88,9 +88,6 @@ func _on_restart():
 	get_tree().reload_current_scene()
 	await fade_effect.play("fade_in")
 
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	print('exit lol')
-
 func _on_flag_exit_screen():
 	await get_tree().create_timer(2).timeout
 	await fade_effect.play("fade_out")
@@ -127,32 +124,3 @@ func retract_hand():
 	GameState.is_hand_attacking = false
 	anim.play("hand_idle")
 	
-#func attack_player():
-	#hand_attacking = true
-	#var origin = hand.global_position
-	#var target = player.global_position
-	#var speed = 2000
-#
-	#hand.gravity_scale = 0
-	#hand.linear_velocity = Vector2.ZERO
-#
-	#while hand.global_position.distance_to(target) > 5 and hand_attacking:
-		#print(target, hand.global_position)
-		#var dir = (target - hand.global_position).normalized()
-		#hand.linear_velocity = dir * speed
-		#await get_tree().physics_frame
-		#
-	#hand.linear_velocity = Vector2.ZERO
-	#await get_tree().physics_frame
-#
-	#while hand.global_position.distance_to(origin) > 5:
-		#var dir = (origin - hand.global_position).normalized()
-		#hand.linear_velocity = dir * speed
-		#await get_tree().physics_frame
-#
-	#hand.linear_velocity = Vector2(1,1)
-	#hand.global_position = origin
-#
-#func _on_player_get_hitted():
-	#hand_attacking = false
-	#pass
