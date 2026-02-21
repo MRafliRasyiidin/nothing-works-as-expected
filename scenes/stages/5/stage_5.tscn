@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="10_xe64s"]
 [ext_resource type="PackedScene" uid="uid://cvchj3fvtsxu2" path="res://scenes/stages/2/stage_ui.tscn" id="11_udoku"]
 [ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="11_vtgqv"]
-[ext_resource type="Texture2D" uid="uid://cl8ksaie2wieb" path="res://assets/horse/portrait/IMG_6147.PNG" id="12_1cco7"]
-[ext_resource type="Texture2D" uid="uid://dbi65vn4swj7m" path="res://assets/horse/portrait/IMG_6145.PNG" id="13_2aub0"]
-[ext_resource type="Texture2D" uid="uid://cngrprj4arpv8" path="res://assets/horse/portrait/IMG_6146.PNG" id="14_m38eo"]
+[ext_resource type="Texture2D" uid="uid://ct6qw71x408pw" path="res://assets/horse/portrait/IMG_6164.PNG" id="13_1cco7"]
+[ext_resource type="Texture2D" uid="uid://drowfv22x0yfe" path="res://assets/horse/portrait/IMG_6166.PNG" id="13_m38eo"]
+[ext_resource type="Texture2D" uid="uid://d07egy8bk7ti6" path="res://assets/horse/portrait/IMG_6165.PNG" id="14_2aub0"]
 [ext_resource type="Texture2D" uid="uid://pfayya0wykp0" path="res://assets/hand/tangan angpao.png" id="15_1cco7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
@@ -59,7 +59,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_1cco7")
+"texture": ExtResource("13_m38eo")
 }],
 "loop": true,
 "name": &"happy",
@@ -67,10 +67,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_2aub0")
+"texture": ExtResource("13_1cco7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_m38eo")
+"texture": ExtResource("14_2aub0")
 }],
 "loop": true,
 "name": &"idle",
@@ -144,7 +144,7 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_wicep")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.4207559
+frame_progress = 0.4841286
 
 [node name="Area2D" type="Area2D" parent="Cat"]
 

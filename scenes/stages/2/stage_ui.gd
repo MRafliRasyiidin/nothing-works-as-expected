@@ -38,7 +38,6 @@ func _on_settings_pressed() -> void:
 	options_menu.show()
 	
 func _on_fullscreen_pressed(toggled_on: bool):
-	print('ayay')
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
@@ -67,11 +66,9 @@ func _on_back_hint_pressed() -> void:
 	hint.hide()
 
 func _on_timer_timeout():
-	print('ayaamam')
 	if current_hint < len(GameState.hints[GameState.current_stage]):
 		current_hint += 1
 		await display_new_hint()
-		print('ayayayaay')
 
 func display_new_hint():
 	$StageIntro.show()

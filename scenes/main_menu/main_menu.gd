@@ -78,7 +78,6 @@ func on_play_pressed() -> void:
 		
 func on_exit_pressed() -> void:
 	#AudioController.play_click()
-	print('herweasdasd')
 	get_tree().quit()
 
 func on_leaderboard_pressed() -> void:

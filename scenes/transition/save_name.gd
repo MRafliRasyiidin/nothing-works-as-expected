@@ -1,8 +1,8 @@
 extends Control
 
 @onready var line_edit: LineEdit = $VBoxContainer/LineEdit
-@onready var submit_button: Button = $Submit
-@onready var exit_button: Button = $Exit
+@onready var submit_button: TextureButton = $Submit
+@onready var exit_button: TextureButton = $Exit
 
 func _ready():
 	line_edit.grab_focus()

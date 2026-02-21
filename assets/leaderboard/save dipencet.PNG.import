@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cngrprj4arpv8"
-path="res://.godot/imported/IMG_6146.PNG-a3b003b210a58f4d7faa968922f06623.ctex"
+uid="uid://dvs70tp0kn6p6"
+path="res://.godot/imported/save dipencet.PNG-0f2c4328272e63a416f3cce7ff48c430.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/horse/portrait/IMG_6146.PNG"
-dest_files=["res://.godot/imported/IMG_6146.PNG-a3b003b210a58f4d7faa968922f06623.ctex"]
+source_file="res://assets/leaderboard/save dipencet.PNG"
+dest_files=["res://.godot/imported/save dipencet.PNG-0f2c4328272e63a416f3cce7ff48c430.ctex"]
 
 [params]
 

@@ -3,16 +3,20 @@ extends Control
 @onready var camera: Camera2D = $RigidBody2D/Camera2D
 @onready var flag: Node2D = $Flag/Flag
 @onready var hint: Control = $StageIntro
-@onready var stage_ui = $StageUI
+@onready var stage_ui: Control = $RigidBody2D/StageUI
 @onready var transition: VideoStreamPlayer = $Transition
 @onready var e_texture: Sprite2D = $Node2D/Sprite2D
 @onready var e_img = preload("res://assets/stage/ui/E.png")
 @onready var e_img_hovered = preload("res://assets/stage/ui/E Ditekan.png")
+@onready var hint_button: TextureButton = $RigidBody2D/StageUI/HBoxContainer/HintButton
+@onready var retry_button: TextureButton = $RigidBody2D/StageUI/HBoxContainer/RetryButton
+@onready var pause_button: TextureButton = $RigidBody2D/StageUI/HBoxContainer/PauseButton
 
 var is_flag_in_frame: bool = false
 var is_item_in_frame: bool = false
 
 func _ready() -> void:
+	disable_button()
 	var path = get_tree().current_scene.scene_file_path
 	var file_name = path.get_file().get_basename()
 	var parts = file_name.split("_")
@@ -28,6 +32,7 @@ func _ready() -> void:
 		await show_hint()
 		GameState.is_start_stage = false
 		GameState.start_time = Time.get_ticks_msec()
+	enable_button()
 
 func _process(delta: float) -> void:
 	if is_flag_in_frame and is_item_in_frame:
@@ -79,3 +84,13 @@ func _on_flag_area_entered():
 	
 func _on_flag_area_exited():
 	e_texture.texture = e_img
+	
+func disable_button():
+	hint_button.disabled = true
+	retry_button.disabled = true
+	pause_button.disabled = true
+
+func enable_button():
+	hint_button.disabled = false
+	retry_button.disabled = false
+	pause_button.disabled = false
