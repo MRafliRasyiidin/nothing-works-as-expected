@@ -24,7 +24,8 @@ func _input(event: InputEvent) -> void:
 		var end_time = Time.get_ticks_msec()
 		var elapsed_time = (end_time - GameState.start_time) / 1000.0
 		GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
-		
+		GameState.current_hint = 1
+
 		get_tree().change_scene_to_file("res://scenes/stages/4/stage_4.tscn")
 
 func _on_area_body_entered(body: Node2D) -> void:

@@ -53,9 +53,11 @@ var hints := {
 	1: ["Capture the flag", "Don’t let the flag leave", "Move the hand", "And capture the flag"],
 	2: ["Finish when the time comes", "Reduce the time", "Do something with the time bar", "Alright, just push the time bar to the left"],
 	3: ["A flag is nothing without E", "The flag and E are one", "Both must appear at once", "Oh my god, just make the flag and E appear in one frame"],
-	4: ["Go back in time", "Back to the start", "Undo?", "RESTART!"],
+	4: ["Go back in time", "Back to the start", "Undo?", "RESTART!!!"],
 	5: ["She wants something...", "Gong Xi Fa Cai!", "This stage is very easy, why did it take you so long?", "Bruh, just click the horse"],
 }
+
+var current_hint: int = 1
 
 func add_to_leaderboard():
 	var sum = 0

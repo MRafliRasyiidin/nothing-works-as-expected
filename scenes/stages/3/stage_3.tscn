@@ -556,7 +556,6 @@ texture_hover = ExtResource("23_bm81y")
 
 [node name="Timer" type="Timer" parent="RigidBody2D/StageUI"]
 wait_time = 60.0
-autostart = true
 
 [node name="StageIntro" type="Control" parent="RigidBody2D/StageUI"]
 process_mode = 3

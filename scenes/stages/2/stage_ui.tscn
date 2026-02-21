@@ -377,7 +377,6 @@ texture_hover = ExtResource("14_ufvri")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
-autostart = true
 
 [node name="StageIntro" type="Control" parent="."]
 process_mode = 3

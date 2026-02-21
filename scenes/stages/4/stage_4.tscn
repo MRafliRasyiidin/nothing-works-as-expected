@@ -247,6 +247,7 @@ position = Vector2(213.5, 674)
 shape = SubResource("RectangleShape2D_j5kpl")
 
 [node name="StageUI" parent="." instance=ExtResource("15_0ctgs")]
+z_index = 2
 layout_mode = 1
 
 [node name="Transition" type="VideoStreamPlayer" parent="."]

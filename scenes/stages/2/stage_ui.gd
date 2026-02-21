@@ -12,12 +12,11 @@ extends Control
 @onready var anim: AnimationPlayer = $StageIntro/AnimationPlayer
 @onready var timer_anim: Timer = $StageIntro/Timer
 
-var current_hint: int = 1
-
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	check_box.toggled.connect(_on_fullscreen_pressed)
 	check_box.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	timer.start(60)
 
 func _on_pause_button_pressed() -> void:
 	pause_popup.show()
@@ -56,7 +55,7 @@ func _on_hint_button_pressed() -> void:
 	get_tree().paused = true
 	var hint_list = GameState.hints[GameState.current_stage]
 	var concated_hint = ""
-	for i in range(current_hint):
+	for i in range(GameState.current_hint):
 		concated_hint += str(i+1) + ". " + hint_list[i] + "\n"
 	hint_text.text = concated_hint
 	hint.show()
@@ -66,14 +65,14 @@ func _on_back_hint_pressed() -> void:
 	hint.hide()
 
 func _on_timer_timeout():
-	if current_hint < len(GameState.hints[GameState.current_stage]):
-		current_hint += 1
+	if GameState.current_hint < len(GameState.hints[GameState.current_stage]):
+		GameState.current_hint += 1
 		await display_new_hint()
-
+	
 func display_new_hint():
 	$StageIntro.show()
 	stage.text = "New Hint"
-	hint_anim_label.text = GameState.hints[GameState.current_stage][current_hint-1]
+	hint_anim_label.text = GameState.hints[GameState.current_stage][GameState.current_hint-1]
 	anim.stop()
 	get_tree().paused = true
 	anim.play("fade")
