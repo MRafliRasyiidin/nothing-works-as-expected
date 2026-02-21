@@ -17,8 +17,7 @@ shape = SubResource("RectangleShape2D_dovo2")
 [node name="HorseSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("3_gmlin")
-animation = &"walk_right"
-frame_progress = 0.02774847
+animation = &"walk_to_start"
 speed_scale = 2.0
 
 [node name="HeartSprite" type="AnimatedSprite2D" parent="."]

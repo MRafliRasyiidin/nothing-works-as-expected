@@ -14,7 +14,7 @@ func _ready():
 func _physics_process(delta):
 	var direction := Vector2.ZERO
 
-	if GameState.is_intro:
+	if GameState.is_intro || GameState.disable_move:
 		return
 
 	if Input.is_action_pressed("up"):
@@ -65,3 +65,8 @@ func update_animation(direction: Vector2):
 		animation.play("walk_right")
 	else:
 		animation.play("walk_left")
+
+func play_anim(animation_name: String, wait_for_complete: bool = false):
+	animation.play(animation_name)
+	if wait_for_complete:
+		await animation.animation_finished

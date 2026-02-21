@@ -12,6 +12,8 @@ extends Control
 @onready var anim: AnimationPlayer = $StageIntro/AnimationPlayer
 @onready var timer_anim: Timer = $StageIntro/Timer
 
+signal move_right
+
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	check_box.toggled.connect(_on_fullscreen_pressed)
@@ -28,6 +30,8 @@ func _on_retry_button_pressed() -> void:
 func _on_continue_button_pressed() -> void:
 	get_tree().paused = false
 	pause_popup.hide()
+	if GameState.disable_move:
+		emit_signal("move_right")
 
 func _on_exit_pressed() -> void:
 	get_tree().paused = false

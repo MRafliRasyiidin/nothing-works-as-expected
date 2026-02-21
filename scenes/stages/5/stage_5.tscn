@@ -1,88 +1,86 @@
-[gd_scene load_steps=25 format=3 uid="uid://dpiymhri3rma0"]
+[gd_scene load_steps=29 format=3 uid="uid://x274vqq7ysrp"]
 
-[ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="1_2tgod"]
-[ext_resource type="Script" uid="uid://dihy358tl5ud2" path="res://scenes/stages/5/stage_5.gd" id="1_datci"]
-[ext_resource type="Texture2D" uid="uid://3usl8kulsy32" path="res://assets/stage/cat/IMG_6016.PNG" id="1_gwe5a"]
-[ext_resource type="Texture2D" uid="uid://dns2quir7xd0l" path="res://assets/stage/cat/IMG_6017.PNG" id="2_1wqbp"]
-[ext_resource type="Texture2D" uid="uid://dkjris7ku3ws0" path="res://assets/stage/cat/IMG_6022.PNG" id="3_0a16o"]
-[ext_resource type="Texture2D" uid="uid://b6nrk4mfydg5l" path="res://assets/stage/cat/IMG_6018.PNG" id="3_2tgod"]
-[ext_resource type="Script" uid="uid://bcgbau130b156" path="res://scenes/flag/flag.gd" id="3_fotsh"]
-[ext_resource type="Texture2D" uid="uid://b5t858va5061g" path="res://assets/stage/cat/IMG_6019.PNG" id="4_datci"]
-[ext_resource type="SpriteFrames" uid="uid://hk3iv4m13b06" path="res://scenes/flag/flag.tres" id="4_es6du"]
-[ext_resource type="Texture2D" uid="uid://c2c6mq4tkes5b" path="res://assets/stage/cat/IMG_6023.PNG" id="4_xe64s"]
-[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="5_1u5ce"]
-[ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="10_xe64s"]
-[ext_resource type="PackedScene" uid="uid://cvchj3fvtsxu2" path="res://scenes/stages/2/stage_ui.tscn" id="11_udoku"]
-[ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="11_vtgqv"]
-[ext_resource type="Texture2D" uid="uid://ct6qw71x408pw" path="res://assets/horse/portrait/IMG_6164.PNG" id="13_1cco7"]
-[ext_resource type="Texture2D" uid="uid://drowfv22x0yfe" path="res://assets/horse/portrait/IMG_6166.PNG" id="13_m38eo"]
-[ext_resource type="Texture2D" uid="uid://d07egy8bk7ti6" path="res://assets/horse/portrait/IMG_6165.PNG" id="14_2aub0"]
-[ext_resource type="Texture2D" uid="uid://pfayya0wykp0" path="res://assets/hand/tangan angpao.png" id="15_1cco7"]
+[ext_resource type="Script" uid="uid://5xr1wjrotx7i" path="res://scenes/stages/5/stage_5.gd" id="1_riqkt"]
+[ext_resource type="PackedScene" uid="uid://coasmh1is005m" path="res://scenes/player/player.tscn" id="2_031o4"]
+[ext_resource type="PackedScene" uid="uid://e0tiusshesp2" path="res://scenes/stages/stage_intro/stage_intro.tscn" id="3_3862f"]
+[ext_resource type="Texture2D" uid="uid://cbbv7wobiv4ct" path="res://assets/background/bg imlek.png" id="4_dck1c"]
+[ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="5_og185"]
+[ext_resource type="Texture2D" uid="uid://u6tupqfrf7v6" path="res://assets/stage/flag/bendera berkibar.png" id="6_rx88i"]
+[ext_resource type="Texture2D" uid="uid://b8n2jm12ssehn" path="res://assets/stage/ui/E.png" id="7_1k073"]
+[ext_resource type="Script" uid="uid://dhrxhrvf5yir" path="res://scenes/stages/2/rigid_body_2d.gd" id="8_txl82"]
+[ext_resource type="Texture2D" uid="uid://cb4u678jfulsc" path="res://assets/stage/health_bar/IMG_0712.PNG" id="9_k5v6m"]
+[ext_resource type="Texture2D" uid="uid://c6je86wfu70al" path="res://assets/stage/health_bar/IMG_0711.PNG" id="10_sil74"]
+[ext_resource type="Texture2D" uid="uid://0pbi16w8ewv" path="res://assets/stage/health_bar/clock.png" id="11_cbj5r"]
+[ext_resource type="PackedScene" uid="uid://cvchj3fvtsxu2" path="res://scenes/stages/2/stage_ui.tscn" id="12_lael7"]
+[ext_resource type="VideoStream" uid="uid://cm00bb7tt3n57" path="res://assets/transition/Transition.ogv" id="13_111bt"]
+[ext_resource type="Texture2D" uid="uid://bg1tvfvf51avn" path="res://assets/background/wall/bg imlek overlay.PNG" id="14_wynfr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssd"]
-size = Vector2(167, 151)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdpil"]
+size = Vector2(1234, 212.16666)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0a16o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bajpa"]
+size = Vector2(30.055786, 712.8334)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yqdtu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe8rg"]
+size = Vector2(583.3334, 20.000008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghq5p"]
+size = Vector2(542, 17.333298)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe8rg"]
+atlas = ExtResource("6_rx88i")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghq5p"]
+atlas = ExtResource("6_rx88i")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwtqs"]
+atlas = ExtResource("6_rx88i")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fdq5"]
+atlas = ExtResource("6_rx88i")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ueb"]
+atlas = ExtResource("6_rx88i")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kf1su"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0a16o")
+"texture": SubResource("AtlasTexture_fe8rg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_xe64s")
+"texture": SubResource("AtlasTexture_ghq5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwtqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fdq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3ueb")
 }],
 "loop": true,
-"name": &"happy",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_gwe5a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_1wqbp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_2tgod")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_datci")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wicep"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_m38eo")
-}],
-"loop": true,
-"name": &"happy",
+"name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_1cco7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_2aub0")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_datci"]
-size = Vector2(187, 386)
+[sub_resource type="CircleShape2D" id="CircleShape2D_bajpa"]
+radius = 68.630905
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_datci"]
-radius = 87.19757
-height = 248.79932
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4480o"]
+size = Vector2(92.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlmwb"]
+size = Vector2(292, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5kpl"]
+size = Vector2(55, 62)
 
 [node name="Stage5" type="Control"]
 layout_mode = 3
@@ -91,114 +89,167 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_datci")
+script = ExtResource("1_riqkt")
 
-[node name="BaseBg" parent="." instance=ExtResource("1_2tgod")]
-layout_mode = 1
+[node name="Player" parent="." instance=ExtResource("2_031o4")]
+z_index = 1
+position = Vector2(388, 401)
 
-[node name="Flag" type="Node2D" parent="."]
-position = Vector2(673, 368)
-script = ExtResource("3_fotsh")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flag"]
-scale = Vector2(0.7, 0.7)
-sprite_frames = ExtResource("4_es6du")
-animation = &"run_down"
-frame_progress = 0.4459983
-
-[node name="TextureRect" type="TextureRect" parent="Flag/AnimatedSprite2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -120.0
-offset_top = -122.85715
-offset_right = -80.0
-offset_bottom = -79.85715
-grow_horizontal = 2
-texture = ExtResource("5_1u5ce")
 
-[node name="Area" type="Area2D" parent="Flag"]
-
-[node name="Collision" type="CollisionShape2D" parent="Flag/Area"]
-shape = SubResource("RectangleShape2D_e4ssd")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Flag"]
-rect = Rect2(-63, -57, 103, 130)
-
-[node name="Cat" type="Node2D" parent="."]
-
-[node name="CatAnimatedSprite2D" type="AnimatedSprite2D" parent="Cat"]
+[node name="StageIntro" parent="CanvasLayer" instance=ExtResource("3_3862f")]
 visible = false
-material = SubResource("ShaderMaterial_0a16o")
-position = Vector2(640, 360)
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_yqdtu")
-animation = &"happy"
-autoplay = "idle"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cat"]
-material = SubResource("ShaderMaterial_0a16o")
-position = Vector2(640, 360)
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_wicep")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.4841286
-
-[node name="Area2D" type="Area2D" parent="Cat"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/Area2D"]
-position = Vector2(610.5, 360)
-shape = SubResource("RectangleShape2D_datci")
-
-[node name="Node2D2" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
-
-[node name="Hand" type="Node2D" parent="."]
-position = Vector2(1101, 624.9999)
-rotation = -0.41223142
-
-[node name="Sprite2D" type="Sprite2D" parent="Hand"]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("15_1cco7")
-
-[node name="HandArea" type="Area2D" parent="Hand"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/HandArea"]
-position = Vector2(-36.450638, -186.20235)
-rotation = -0.5284412
-shape = SubResource("CapsuleShape2D_datci")
-
-[node name="StageUI" parent="." instance=ExtResource("11_udoku")]
-layout_mode = 1
-
-[node name="StageIntro" parent="." instance=ExtResource("10_xe64s")]
-visible = false
-layout_mode = 1
-
-[node name="Transition" type="VideoStreamPlayer" parent="."]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -696.0
-offset_top = -391.0
-offset_right = 696.0
-offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(670, 345.5)
+texture = ExtResource("4_dck1c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(617, 96.08336)
+shape = SubResource("RectangleShape2D_rdpil")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(8, 346.4167)
+shape = SubResource("RectangleShape2D_bajpa")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(1227.6947, 348.4985)
+shape = SubResource("RectangleShape2D_bajpa")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(283.6667, 684.8334)
+shape = SubResource("RectangleShape2D_fe8rg")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="TextureRect/StaticBody2D"]
+position = Vector2(961.66675, 683.5)
+shape = SubResource("RectangleShape2D_ghq5p")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="BaseBg" parent="CanvasLayer2" instance=ExtResource("5_og185")]
+
+[node name="Flag" type="Node2D" parent="."]
+position = Vector2(993, 398)
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Flag"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_kf1su")
+
+[node name="Area2D" type="Area2D" parent="Flag"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag/Area2D"]
+position = Vector2(-11.428571, 8.571428)
+shape = SubResource("CircleShape2D_bajpa")
+
+[node name="TextureRect" type="TextureRect" parent="Flag"]
+visible = false
+z_index = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.428574
+offset_top = -111.42857
+offset_right = 3.5714264
+offset_bottom = -68.42857
+grow_horizontal = 2
+texture = ExtResource("7_1k073")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(52, 18)
+gravity_scale = 0.0
+lock_rotation = true
+custom_integrator = true
+max_contacts_reported = 100
+angular_damp = -1.0
+script = ExtResource("8_txl82")
+
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+position = Vector2(436.75, 654.5)
+shape = SubResource("RectangleShape2D_4480o")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="RigidBody2D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = 636.0
+offset_right = 629.0
+offset_bottom = 696.0
+grow_vertical = 0
+scale = Vector2(0.667, 0.667)
+step = 0.0
+value = 100.0
+texture_under = ExtResource("9_k5v6m")
+texture_progress = ExtResource("10_sil74")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(335, 656)
+shape = SubResource("RectangleShape2D_hlmwb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(217, 668)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("11_cbj5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(213.5, 674)
+shape = SubResource("RectangleShape2D_j5kpl")
+
+[node name="StageUI" parent="." instance=ExtResource("12_lael7")]
+z_index = 2
+layout_mode = 1
+
+[node name="Transition" type="VideoStreamPlayer" parent="."]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.48, 0.48)
 pivot_offset = Vector2(1336, 751)
-stream = ExtResource("11_vtgqv")
+stream = ExtResource("13_111bt")
 autoplay = true
 
-[connection signal="area_entered" from="Flag/Area" to="." method="_on_area_area_entered"]
-[connection signal="area_exited" from="Flag/Area" to="." method="_on_area_area_exited"]
-[connection signal="body_entered" from="Flag/Area" to="Flag" method="_on_area_body_entered"]
-[connection signal="body_exited" from="Flag/Area" to="Flag" method="_on_area_body_exited"]
-[connection signal="screen_exited" from="Flag/VisibleOnScreenNotifier2D" to="Flag" method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="area_entered" from="Cat/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Cat/Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="OverlayDecor" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.0
+offset_top = -269.99997
+offset_right = 789.0
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("14_wynfr")
+
+[connection signal="body_entered" from="Flag/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Flag/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_body_exited"]
+[connection signal="value_changed" from="RigidBody2D/TextureProgressBar" to="RigidBody2D" method="_on_texture_progress_bar_value_changed"]

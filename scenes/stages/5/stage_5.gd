@@ -1,23 +1,17 @@
 extends Control
 
-var mouse_global_position: Vector2
-@onready var hand: Node2D = $Hand
-@onready var outline_shader = load("res://scenes/stages/5/outline.gdshader")
-@onready var cat_sprite = $Cat/AnimatedSprite2D
-@onready var cat_area = $Cat/Area2D
-@onready var hand_area: Area2D = $Hand/HandArea
-@onready var hint: Control = $StageIntro
-@onready var transtion = $Transition
-
-var outline_mat: ShaderMaterial
-
-var is_patpat: bool = false
-var can_patpat: bool = false
-var is_complete: bool = false
-
-var can_move: bool = false
+var player_in_flag_area: bool = false
+@onready var e: TextureRect = $Flag/TextureRect
+@onready var hint: Control = $CanvasLayer/StageIntro
+@onready var canvas = $CanvasLayer
+@onready var player = $Player
+@onready var transition = $Transition
+@onready var stage_ui = $StageUI
 
 func _ready() -> void:
+	GameState.disable_move = true
+	stage_ui.move_right.connect(_on_right_move)
+	$StageUI/HBoxContainer/RetryButton.pressed.connect(_on_retry_pressed)
 	var path = get_tree().current_scene.scene_file_path
 	var file_name = path.get_file().get_basename()
 	var parts = file_name.split("_")
@@ -26,10 +20,13 @@ func _ready() -> void:
 	GameState.current_stage = stage_number
 	hint.set_stage(stage_number)
 	if GameState.is_start_stage:
-		transtion.show()
-		transtion.play()
-		await transtion.finished
-		transtion.hide()
+		GameState.retry_count = 0
+		transition.show()
+		transition.play()
+		await transition.finished
+		transition.hide()
+		canvas.show()
+		player.show()
 		GameState.is_intro = true
 		hint.show()
 		await get_tree().create_timer(4).timeout
@@ -38,63 +35,43 @@ func _ready() -> void:
 		GameState.is_start_stage = false
 		GameState.start_time = Time.get_ticks_msec()
 
-	outline_mat = ShaderMaterial.new()
-	outline_mat.shader = outline_shader
-	can_move = true
+	canvas.show()
+	player.show()
+	await player.play_anim("start_to_walk", true)
+	player.play_anim("idle_right")
+
+func _process(delta: float) -> void:
+	pass
 
 func _input(event: InputEvent) -> void:
-	if not GameState.is_intro:
-		if event.is_action_pressed("move_hand") and not is_patpat and can_patpat:
-			pat_cat()
-		if (event.is_action_pressed("move_hand") or event.is_action_pressed("submit")) and is_complete and $Flag.button_texture.visible:
-			$Flag.change_e_texture(true)
-			await get_tree().create_timer(0.5)
-			
-			# Save time to global state, copy this to every stage
-			var end_time = Time.get_ticks_msec()
-			var elapsed_time = (end_time - GameState.start_time) / 1000.0
-			GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
-			GameState.current_hint = 1
+	if event.is_action_pressed('submit') and player_in_flag_area:
+		await get_tree().create_timer(0.3).timeout
+		GameState.is_start_stage = true
+		
+		# Save time to global state, copy this to every stage
+		var end_time = Time.get_ticks_msec()
+		var elapsed_time = (end_time - GameState.start_time) / 1000.0
+		GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
+		GameState.current_hint = 1
+		GameState.disable_move = true
 
-			get_tree().change_scene_to_file("res://scenes/transition/save_name.tscn")
-	
-func _process(delta):
-	if not GameState.is_intro and can_move:
-		if not is_patpat:
-			hand.global_position = get_global_mouse_position()
+		get_tree().change_scene_to_file("res://scenes/stages/6/stage_6.tscn")
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "HandArea":
-		can_patpat = true
-		cat_sprite.play("happy")
-		cat_sprite.material = outline_mat
+func _on_retry_pressed() -> void:
+	GameState.retry_count += 1
+	print("Retried %dx" % [GameState.retry_count])
 
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.name == "HandArea":
-		can_patpat = false
-		cat_sprite.play("idle")
-		cat_sprite.material = null
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		player_in_flag_area = true
+		await player.play_anim("walk_to_start", true)
+		player.play_anim("start")
+		e.show()
 
-func pat_cat():
-	is_patpat = true
-	var tween: Tween = create_tween()
-	var origin_rotation = hand.rotation_degrees
-	for i in range(5):
-		tween.tween_property(hand, "rotation_degrees", -30, 0.3)
-		tween.tween_property(hand, "rotation_degrees", 10, 0.3)
-	tween.tween_property(hand, "rotation_degrees", origin_rotation, 0.3)
-	is_patpat = false
-	tween.tween_property($Cat, "modulate:a", 0.0, 1)
-	await tween.finished
-	$Cat.hide()
-	is_complete = true
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		player_in_flag_area = false
+		e.hide()
 
-
-func _on_area_area_entered(area: Area2D) -> void:
-	if area.name == "HandArea":
-		$Flag.is_completed = true
-		$Flag.button_texture.show()
-
-func _on_area_area_exited(area: Area2D) -> void:
-	if area.name == "HandArea":
-		$Flag.button_texture.hide()
+func _on_right_move():
+	player.position += Vector2(100, 0)

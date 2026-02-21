@@ -32,32 +32,17 @@ var global_leaderboard = [
 	
 ]
 
-func reset_global_var():
-	is_hand_attacking = false
-	is_player_move = false
-	is_intro = false
-	is_start_stage = true
-	retry_count = 0
-	current_stage = 1
-	stage_finish_time = {
-		"1": 0,
-		"2": 0,
-		"3": 0,
-		"4": 0,
-		"5": 0,
-		"6": 0,
-		"total": 0,
-	}
-
 var hints := {
 	1: ["Capture the flag", "Don’t let the flag leave", "Move the hand", "And capture the flag"],
 	2: ["Finish when the time comes", "Reduce the time", "Do something with the time bar", "Alright, just push the time bar to the left"],
 	3: ["A flag is nothing without E", "The flag and E are one", "Both must appear at once", "Oh my god, just make the flag and E appear in one frame"],
 	4: ["Go back in time", "Back to the start", "Undo?", "RESTART!!!"],
-	5: ["She wants something...", "Gong Xi Fa Cai!", "This stage is very easy, why did it take you so long?", "Bruh, just click the horse"],
+	5: ["Move to the right", "Can’t move? Try the right-facing button", "Still haven't found it? Check the whole screen", "Maybe pause for a moment?", "Maybe it's too hard for ya? Fine. Just pause the game and click Continue"],
+	6: ["She wants something...", "Gong Xi Fa Cai!", "This stage is very easy, why did it take you so long?", "Bruh, just click the horse"],
 }
 
 var current_hint: int = 1
+var disable_move: bool = false
 
 func add_to_leaderboard():
 	var sum = 0
@@ -77,3 +62,22 @@ func add_stage_time(stage: String, time: float):
 	stage_finish_time.set(stage, time)
 	stage_finish_time["total"] += time
 	print(stage_finish_time)
+
+func reset_global_var():
+	is_hand_attacking = false
+	is_player_move = false
+	is_intro = false
+	is_start_stage = true
+	retry_count = 0
+	current_stage = 1
+	stage_finish_time = {
+		"1": 0,
+		"2": 0,
+		"3": 0,
+		"4": 0,
+		"5": 0,
+		"6": 0,
+		"total": 0,
+	}
+	disable_move = false
+	current_hint = 1

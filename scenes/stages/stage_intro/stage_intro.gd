@@ -10,7 +10,8 @@ var hints := {
 	2: "Finish When The Time Comes",
 	3: "A Flag Is Nothing Without E",
 	4: "Go Back In Time",
-	5: "She wants something...",
+	5: "Move to The Right",
+	6: "She wants something...",
 }
 
 # Called when the node enters the scene tree for the first time.
