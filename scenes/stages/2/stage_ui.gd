@@ -18,7 +18,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	check_box.toggled.connect(_on_fullscreen_pressed)
 	check_box.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
-	timer.start(60)
+	timer.start(45)
 
 func _on_pause_button_pressed() -> void:
 	pause_popup.show()
