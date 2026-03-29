@@ -10,26 +10,29 @@ extends Control
 @onready var music_volume: HSlider = $OptionsMenu/Panel/VBoxContainer/MusicVolume/HSlider
 @onready var option_button: OptionButton = $OptionsMenu/Panel/VBoxContainer/Resolution/OptionButton
 @onready var check_box: CheckBox = $OptionsMenu/Panel/VBoxContainer/Fullscreen/CheckBox
-
+@onready var leaderboard_button: TextureButton = $Leaderboard
 const MASTER_BUS_IDX = 0
 const MUSIC_BUS_IDX = 1
 
 func _ready():
+	GameState.reset_global_var()
 	$AnimationPlayer.play("wobble")
 	#AudioController.play_music()
 	play.button_down.connect(on_play_pressed)
 	options.button_down.connect(on_options_pressed)
 	exit.button_down.connect(on_exit_pressed)
+	leaderboard_button.pressed.connect(on_leaderboard_pressed)
+	
 	back.button_down.connect(on_options_back_pressed)
 	master_volume.value_changed.connect(_on_master_volume_changed)
 	music_volume.value_changed.connect(_on_music_volume_changed)
 	option_button.item_selected.connect(_on_resoluton_selected)
 	check_box.toggled.connect(_on_fullscreen_pressed)
+	
 	# Initialize volume sliders
 	check_box.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MASTER_BUS_IDX))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_IDX))
-	
 	GameState.current_stage = 1
 
 func on_options_pressed() -> void:
@@ -76,6 +79,9 @@ func on_play_pressed() -> void:
 func on_exit_pressed() -> void:
 	#AudioController.play_click()
 	get_tree().quit()
+
+func on_leaderboard_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu/leaderboard.tscn")
 
 #func _on_yes_pressed() -> void:
 	#AudioController.play_click()

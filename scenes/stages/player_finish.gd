@@ -19,6 +19,13 @@ func _input(event: InputEvent) -> void:
 		change_e_texture(true)
 		await get_tree().create_timer(0.3).timeout
 		GameState.is_start_stage = true
+		
+		# Save time to global state, copy this to every stage
+		var end_time = Time.get_ticks_msec()
+		var elapsed_time = (end_time - GameState.start_time) / 1000.0
+		GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
+		GameState.current_hint = 1
+		
 		get_tree().change_scene_to_file("res://scenes/stages/3/stage_3.tscn")
 
 func _on_area_body_entered(body: Node2D) -> void:

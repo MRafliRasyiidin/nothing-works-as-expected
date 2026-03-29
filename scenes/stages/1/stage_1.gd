@@ -26,6 +26,8 @@ var is_hand_moving = false
 var hand_original_position = Vector2.ZERO
 
 func _ready() -> void:
+	GameState.current_stage = 1
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	dead.connect(_on_restart)
 	flag.flag_area_entered.connect(_on_flag_area_entered)
@@ -35,6 +37,7 @@ func _ready() -> void:
 	
 	hand_original_position = hand.global_position
 	anim.play("hand_idle")
+	GameState.start_time = Time.get_ticks_msec()
 
 func _input(event: InputEvent) -> void:
 	if can_hand_move and can_hand_controlled and not GameState.is_intro:
@@ -53,6 +56,12 @@ func _input(event: InputEvent) -> void:
 			flag.change_e_texture(true)
 			await get_tree().create_timer(0.2).timeout
 			GameState.is_start_stage = true
+			
+			# Save time to global state, copy this to every stage
+			var end_time = Time.get_ticks_msec()
+			var elapsed_time = (end_time - GameState.start_time) / 1000.0
+			GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
+			GameState.current_hint = 1
 			get_tree().change_scene_to_file("res://scenes/stages/2/stage_2.tscn")
 			
 func _on_flag_area_entered(can_move: bool, node_name: String):
@@ -78,9 +87,6 @@ func _on_restart():
 	await fade_effect.play("fade_out")
 	get_tree().reload_current_scene()
 	await fade_effect.play("fade_in")
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	print('exit lol')
 
 func _on_flag_exit_screen():
 	await get_tree().create_timer(2).timeout
@@ -118,32 +124,3 @@ func retract_hand():
 	GameState.is_hand_attacking = false
 	anim.play("hand_idle")
 	
-#func attack_player():
-	#hand_attacking = true
-	#var origin = hand.global_position
-	#var target = player.global_position
-	#var speed = 2000
-#
-	#hand.gravity_scale = 0
-	#hand.linear_velocity = Vector2.ZERO
-#
-	#while hand.global_position.distance_to(target) > 5 and hand_attacking:
-		#print(target, hand.global_position)
-		#var dir = (target - hand.global_position).normalized()
-		#hand.linear_velocity = dir * speed
-		#await get_tree().physics_frame
-		#
-	#hand.linear_velocity = Vector2.ZERO
-	#await get_tree().physics_frame
-#
-	#while hand.global_position.distance_to(origin) > 5:
-		#var dir = (origin - hand.global_position).normalized()
-		#hand.linear_velocity = dir * speed
-		#await get_tree().physics_frame
-#
-	#hand.linear_velocity = Vector2(1,1)
-	#hand.global_position = origin
-#
-#func _on_player_get_hitted():
-	#hand_attacking = false
-	#pass

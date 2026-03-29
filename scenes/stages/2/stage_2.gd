@@ -27,6 +27,7 @@ func _ready() -> void:
 		hint.hide()
 		GameState.is_intro = false
 		GameState.is_start_stage = false
+		GameState.start_time = Time.get_ticks_msec()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	player_animation.play("idle")

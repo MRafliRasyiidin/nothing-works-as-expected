@@ -10,26 +10,21 @@ var hints := {
 	2: "Finish When The Time Comes",
 	3: "A Flag Is Nothing Without E",
 	4: "Go Back In Time",
-	5: "She wants something...",
+	5: "Move to The Right",
+	6: "She wants something...",
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	stage.text = "Stage %d" % [GameState.current_stage]
 	hint.text = hints[GameState.current_stage]
-	#print(GameState.current_stage)
 	anim.stop()
 	await timer.timeout
 	anim.play("fade")
 	timer.start()
 	await timer.timeout
 	anim.play_backwards("fade")
-	pass # Replace with function body.
 
 func set_stage(num: int):
 	stage.text = "Stage %d" % [GameState.current_stage]
 	hint.text = hints[GameState.current_stage]
-
-func _on_timer_timeout() -> void:
-	print("test")
-	pass # Replace with function body.

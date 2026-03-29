@@ -17,6 +17,7 @@ config/icon="uid://b7hmbd44u1eu5"
 
 [autoload]
 
+SaveManager="*res://scripts/SaveManager.gd"
 GameState="*res://scripts/GameState.gd"
 GlobalSignal="*res://scripts/GlobalSignal.gd"
 MusicManager="*res://scripts/music_manager.gd"

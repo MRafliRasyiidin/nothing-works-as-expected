@@ -1,7 +1,10 @@
 extends Control
 
-@onready var wall_sprite: Sprite2D = $Wall/Sprite2D
-@onready var wall_col: CollisionShape2D = $Wall/CollisionShape2D
+#@onready var wall_sprite: Sprite2D = $Wall/Sprite2D
+#@onready var wall_col: CollisionShape2D = $Wall/CollisionShape2D
+@onready var wall_sprite: Sprite2D = $WallChinese/Sprite2D
+@onready var wall_col: CollisionShape2D = $WallChinese/CollisionShape2D
+
 
 var player_in_flag_area: bool = false
 @onready var e: TextureRect = $Flag/TextureRect
@@ -34,6 +37,7 @@ func _ready() -> void:
 		hint.hide()
 		GameState.is_intro = false
 		GameState.is_start_stage = false
+		GameState.start_time = Time.get_ticks_msec()
 
 	canvas.show()
 	player.show()
@@ -53,6 +57,13 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('submit') and player_in_flag_area:
 		await get_tree().create_timer(0.3).timeout
 		GameState.is_start_stage = true
+		
+		# Save time to global state, copy this to every stage
+		var end_time = Time.get_ticks_msec()
+		var elapsed_time = (end_time - GameState.start_time) / 1000.0
+		GameState.add_stage_time(str(GameState.current_stage), elapsed_time)
+		GameState.current_hint = 1
+
 		get_tree().change_scene_to_file("res://scenes/stages/5/stage_5.tscn")
 
 func _on_retry_pressed() -> void:

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl83lryx65emg"]
+
+[ext_resource type="Script" uid="uid://827bdennwlol" path="res://scenes/main_menu/leaderboard.gd" id="1_kh23b"]
+[ext_resource type="Texture2D" uid="uid://dvvy333fqxd00" path="res://assets/leaderboard/IMG_0815 (1).png" id="1_olosb"]
+[ext_resource type="PackedScene" uid="uid://b3g1w3ifhwgon" path="res://scenes/stages/bg/base_bg.tscn" id="2_ji2cf"]
+[ext_resource type="Texture2D" uid="uid://bcegtbx0vieuc" path="res://assets/leaderboard/back leaderboard.PNG" id="3_f0lim"]
+[ext_resource type="Texture2D" uid="uid://c2bsv82mdwol2" path="res://assets/leaderboard/back leaderboard hover.PNG" id="4_ji2cf"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kh23b")
+
+[node name="BaseBg" parent="." instance=ExtResource("2_ji2cf")]
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -349.0
+offset_right = 485.0
+offset_bottom = 646.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_olosb")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.99997
+offset_top = 224.2857
+offset_right = 59.999878
+offset_bottom = -95.00006
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.49994
+offset_top = -86.14307
+offset_right = 119.50006
+offset_bottom = 32.856934
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_f0lim")
+texture_hover = ExtResource("4_ji2cf")
